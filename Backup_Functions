@@ -1,0 +1,12 @@
+Interpreter::Interpreter() : lexer(), parser() {
+    // Set command map
+    commandMap.emplace(std::make_pair("openDataServer", OpenServer()));
+    commandMap.emplace(std::make_pair("connect", Connect()));
+    commandMap.emplace(std::make_pair("var", DefineVar()));
+    commandMap.emplace(std::make_pair("if", If())); // Special
+    commandMap.emplace(std::make_pair("while", While())); // Special
+    commandMap.emplace(std::make_pair("put", PutValue())); // Default
+
+    // Give command map and to parser (value by reference)
+    parser.setCommandMap(commandMap);
+}
