@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Client/Client.cpp">
+			<Option target="FlightSimulator"/>
+		</Unit>
+		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Client/Client.h">
+			<Option target="FlightSimulator"/>
+		</Unit>
 		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Commands/Command.h">
 			<Option target="FlightSimulator"/>
 		</Unit>
@@ -166,6 +172,12 @@
 			<Option target="FlightSimulator"/>
 		</Unit>
 		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Parser/Parser.h">
+			<Option target="FlightSimulator"/>
+		</Unit>
+		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Server/Server.cpp">
+			<Option target="FlightSimulator"/>
+		</Unit>
+		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Server/Server.h">
 			<Option target="FlightSimulator"/>
 		</Unit>
 		<Unit filename="/home/ben/CLionProjects/FlightSimulator/main.cpp">

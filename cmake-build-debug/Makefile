@@ -123,6 +123,33 @@ FlightSimulator/fast:
 	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/build
 .PHONY : FlightSimulator/fast
 
+Client/Client.o: Client/Client.cpp.o
+
+.PHONY : Client/Client.o
+
+# target to build an object file
+Client/Client.cpp.o:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Client/Client.cpp.o
+.PHONY : Client/Client.cpp.o
+
+Client/Client.i: Client/Client.cpp.i
+
+.PHONY : Client/Client.i
+
+# target to preprocess a source file
+Client/Client.cpp.i:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Client/Client.cpp.i
+.PHONY : Client/Client.cpp.i
+
+Client/Client.s: Client/Client.cpp.s
+
+.PHONY : Client/Client.s
+
+# target to generate assembly for a file
+Client/Client.cpp.s:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Client/Client.cpp.s
+.PHONY : Client/Client.cpp.s
+
 Commands/Condition.o: Commands/Condition.cpp.o
 
 .PHONY : Commands/Condition.o
@@ -474,6 +501,33 @@ Parser/Parser.cpp.s:
 	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Parser/Parser.cpp.s
 .PHONY : Parser/Parser.cpp.s
 
+Server/Server.o: Server/Server.cpp.o
+
+.PHONY : Server/Server.o
+
+# target to build an object file
+Server/Server.cpp.o:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Server/Server.cpp.o
+.PHONY : Server/Server.cpp.o
+
+Server/Server.i: Server/Server.cpp.i
+
+.PHONY : Server/Server.i
+
+# target to preprocess a source file
+Server/Server.cpp.i:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Server/Server.cpp.i
+.PHONY : Server/Server.cpp.i
+
+Server/Server.s: Server/Server.cpp.s
+
+.PHONY : Server/Server.s
+
+# target to generate assembly for a file
+Server/Server.cpp.s:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Server/Server.cpp.s
+.PHONY : Server/Server.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -510,6 +564,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... FlightSimulator"
 	@echo "... edit_cache"
+	@echo "... Client/Client.o"
+	@echo "... Client/Client.i"
+	@echo "... Client/Client.s"
 	@echo "... Commands/Condition.o"
 	@echo "... Commands/Condition.i"
 	@echo "... Commands/Condition.s"
@@ -549,6 +606,9 @@ help:
 	@echo "... Parser/Parser.o"
 	@echo "... Parser/Parser.i"
 	@echo "... Parser/Parser.s"
+	@echo "... Server/Server.o"
+	@echo "... Server/Server.i"
+	@echo "... Server/Server.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

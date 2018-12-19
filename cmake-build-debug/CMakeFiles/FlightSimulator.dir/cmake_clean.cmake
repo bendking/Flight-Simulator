@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/FlightSimulator.dir/Interpreter/Symbol.cpp.o"
   "CMakeFiles/FlightSimulator.dir/Commands/PutVar.cpp.o"
   "CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.o"
+  "CMakeFiles/FlightSimulator.dir/Client/Client.cpp.o"
+  "CMakeFiles/FlightSimulator.dir/Server/Server.cpp.o"
   "FlightSimulator.pdb"
   "FlightSimulator"
 )

@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/ben/CLionProjects/FlightSimulator/Client/Client.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/Client/Client.cpp.o"
   "/home/ben/CLionProjects/FlightSimulator/Commands/Condition.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/Commands/Condition.cpp.o"
   "/home/ben/CLionProjects/FlightSimulator/Commands/Connect.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/Commands/Connect.cpp.o"
   "/home/ben/CLionProjects/FlightSimulator/Commands/DefineVar.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/Commands/DefineVar.cpp.o"
@@ -17,6 +18,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ben/CLionProjects/FlightSimulator/Lexer/CodeRow.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/Lexer/CodeRow.cpp.o"
   "/home/ben/CLionProjects/FlightSimulator/Lexer/Lexer.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/Lexer/Lexer.cpp.o"
   "/home/ben/CLionProjects/FlightSimulator/Parser/Parser.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/Parser/Parser.cpp.o"
+  "/home/ben/CLionProjects/FlightSimulator/Server/Server.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/Server/Server.cpp.o"
   "/home/ben/CLionProjects/FlightSimulator/main.cpp" "/home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/FlightSimulator.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

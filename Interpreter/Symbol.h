@@ -21,7 +21,6 @@ public:
     explicit Symbol();
     explicit Symbol(double value);
     explicit Symbol(std::string address);
-
     bool symbolExists(std::string symbol);
 
     double getValue() const;

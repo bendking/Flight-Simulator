@@ -42,8 +42,8 @@ void Interpreter::executeFile() {
     // Loop will stop once an empty row has been reached
     while (command != nullptr) {
         // Execute then deallocate command
-        command->execute();
-        delete command;
+//        command->execute();
+//        delete command;
         // Get next command
         command = interpretNextRow();
     }
@@ -67,7 +67,7 @@ Command* Interpreter::interpretNextRow() {
         }
 
         // Else, interpret
-        return interpret(lexer.nextRow());
+        return interpret(lexedLine);
     }
 }
 
@@ -122,5 +122,6 @@ void Interpreter::setBlock(Condition* condition) {
     // Add all commands to this If block until '}' or EOF reached
     while (nextCommand != nullptr) {
         condition->addCommand(nextCommand);
+        nextCommand = interpretNextRow();
     }
 }
