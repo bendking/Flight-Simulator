@@ -144,6 +144,9 @@
 		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Interpreter/Symbol.h">
 			<Option target="FlightSimulator"/>
 		</Unit>
+		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Interpreter/SymbolMap.cpp">
+			<Option target="FlightSimulator"/>
+		</Unit>
 		<Unit filename="/home/ben/CLionProjects/FlightSimulator/Interpreter/SymbolMap.h">
 			<Option target="FlightSimulator"/>
 		</Unit>

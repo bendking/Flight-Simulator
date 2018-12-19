@@ -366,6 +366,33 @@ Interpreter/Symbol.cpp.s:
 	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/Symbol.cpp.s
 .PHONY : Interpreter/Symbol.cpp.s
 
+Interpreter/SymbolMap.o: Interpreter/SymbolMap.cpp.o
+
+.PHONY : Interpreter/SymbolMap.o
+
+# target to build an object file
+Interpreter/SymbolMap.cpp.o:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.o
+.PHONY : Interpreter/SymbolMap.cpp.o
+
+Interpreter/SymbolMap.i: Interpreter/SymbolMap.cpp.i
+
+.PHONY : Interpreter/SymbolMap.i
+
+# target to preprocess a source file
+Interpreter/SymbolMap.cpp.i:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.i
+.PHONY : Interpreter/SymbolMap.cpp.i
+
+Interpreter/SymbolMap.s: Interpreter/SymbolMap.cpp.s
+
+.PHONY : Interpreter/SymbolMap.s
+
+# target to generate assembly for a file
+Interpreter/SymbolMap.cpp.s:
+	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.s
+.PHONY : Interpreter/SymbolMap.cpp.s
+
 Lexer/CodeRow.o: Lexer/CodeRow.cpp.o
 
 .PHONY : Lexer/CodeRow.o
@@ -510,6 +537,9 @@ help:
 	@echo "... Interpreter/Symbol.o"
 	@echo "... Interpreter/Symbol.i"
 	@echo "... Interpreter/Symbol.s"
+	@echo "... Interpreter/SymbolMap.o"
+	@echo "... Interpreter/SymbolMap.i"
+	@echo "... Interpreter/SymbolMap.s"
 	@echo "... Lexer/CodeRow.o"
 	@echo "... Lexer/CodeRow.i"
 	@echo "... Lexer/CodeRow.s"

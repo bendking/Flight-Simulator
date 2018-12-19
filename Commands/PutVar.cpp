@@ -11,10 +11,9 @@
  */
 void PutVar::execute() {
     // Check whether given a numerical value or bind address
-    if (isNumber(arguments[1])) {
+    if (isNumber(arguments[1])) { // If given number, set value (change value in server)
         symbolMap[arguments[0]].setValue(stoi(arguments[1]));
-        // TODO (BEN): Update value in server
-    } else {
+    } else { // If given bind address, set address (local value will update automatically)
         symbolMap[arguments[9]].setAddress(arguments[1]);
     }
 }

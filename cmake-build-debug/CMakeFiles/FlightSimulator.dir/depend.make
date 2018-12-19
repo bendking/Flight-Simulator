@@ -64,6 +64,10 @@ CMakeFiles/FlightSimulator.dir/Interpreter/Interpreter.cpp.o: ../Parser/Parser.h
 CMakeFiles/FlightSimulator.dir/Interpreter/Symbol.cpp.o: ../Interpreter/Symbol.cpp
 CMakeFiles/FlightSimulator.dir/Interpreter/Symbol.cpp.o: ../Interpreter/Symbol.h
 
+CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.o: ../Interpreter/Symbol.h
+CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.o: ../Interpreter/SymbolMap.cpp
+CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.o: ../Interpreter/SymbolMap.h
+
 CMakeFiles/FlightSimulator.dir/Lexer/CodeRow.cpp.o: ../Lexer/CodeRow.cpp
 CMakeFiles/FlightSimulator.dir/Lexer/CodeRow.cpp.o: ../Lexer/CodeRow.h
 

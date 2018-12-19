@@ -58,10 +58,7 @@ int CodeRow::indexOf(std::string param) const {
     throw std::logic_error("Value doesn't exist in table");
 }
 
-// Returns a split of the arguments entered beside the command key-word
+// Returns a split of the arguments entered
 std::vector<std::string> CodeRow::getArgs() {
-    std::vector<std::string>::const_iterator first = m_data.begin() + 1;
-    std::vector<std::string>::const_iterator last = m_data.begin() + size();
-    std::vector<std::string> subVector(first, last);
-    return subVector;
+    return m_data;
 }

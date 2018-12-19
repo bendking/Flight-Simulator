@@ -23,6 +23,9 @@ double Symbol::getValue() const {
 
 void Symbol::setValue(double value) {
     Symbol::value = value;
+    if (addressSet()) {
+        // TODO (BEN): Update value in server
+    }
 }
 
 const std::string &Symbol::getAddress() const {
@@ -32,6 +35,10 @@ const std::string &Symbol::getAddress() const {
 void Symbol::setAddress(const std::string &address) {
     Symbol::address = address;
     // May be necessary to updateValue(), for now we will let the refresh rate do this
+}
+
+bool Symbol::addressSet() {
+    return !(address == "");
 }
 
 // TODO (BEN): Figure out getting value from simulation as client and implement

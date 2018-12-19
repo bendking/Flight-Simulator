@@ -5,7 +5,6 @@
 #ifndef FLIGHTSIMULATOR_SYMBOLMAP_H
 #define FLIGHTSIMULATOR_SYMBOLMAP_H
 
-#include <string>
 #include <unordered_map>
 #include "Symbol.h"
 

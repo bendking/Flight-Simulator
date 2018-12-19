@@ -35,7 +35,7 @@ private:
     Command* interpretNextRow();
     Command* interpretLine(std::string line);
     Command* interpret(CodeRow& row);
-    // Standalone interpret
+    // Unique interpretations
     Command* interpretIf(CodeRow& row);
     Command* interpretWhile(CodeRow& row);
     void setBlock(Condition* condition);

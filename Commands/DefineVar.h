@@ -6,7 +6,6 @@
 #define FLIGHTSIMULATOR_DEFINEVAR_H
 
 #include "Command.h"
-#include "../Interpreter/SymbolMap.h"
 
 
 class DefineVar: public Command {

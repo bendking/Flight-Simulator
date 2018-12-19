@@ -57,6 +57,7 @@ CodeRow& Lexer::nextRow() {
     return row;
 }
 
+// Lex one line (command line style)
 CodeRow& Lexer::lexLine(std::string line) {
     // Convert line to stringstream
     std::stringstream lineStream(line);
@@ -66,6 +67,7 @@ CodeRow& Lexer::lexLine(std::string line) {
     return row;
 }
 
+// Returns a split of the arguments entered
 std::vector<std::string> Lexer::getArgs() {
     return row.getArgs();
 }

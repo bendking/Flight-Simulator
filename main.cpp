@@ -5,6 +5,7 @@
 
 
 int main() {
+    symbolMap.size();
     Interpreter interpreter("input");
     interpreter.executeFile();
     return 0;

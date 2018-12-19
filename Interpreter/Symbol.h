@@ -29,6 +29,7 @@ public:
     const std::string &getAddress() const;
     void setAddress(const std::string &address);
 
+    bool addressSet();
     double updateValue();
 };
 
