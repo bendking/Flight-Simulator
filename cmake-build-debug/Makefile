@@ -48,10 +48,10 @@ RM = /snap/clion/56/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ben/CLionProjects/FlightSimulator
+CMAKE_SOURCE_DIR = /home/ben/Flight-Simulator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ben/CLionProjects/FlightSimulator/cmake-build-debug
+CMAKE_BINARY_DIR = /home/ben/Flight-Simulator/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles /home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ben/Flight-Simulator/cmake-build-debug/CMakeFiles /home/ben/Flight-Simulator/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ben/CLionProjects/FlightSimulator/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ben/Flight-Simulator/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named FlightSimulator
+# Target rules for targets named Flight_Simulator
 
 # Build rule for target.
-FlightSimulator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FlightSimulator
-.PHONY : FlightSimulator
+Flight_Simulator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Flight_Simulator
+.PHONY : Flight_Simulator
 
 # fast build rule for target.
-FlightSimulator/fast:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/build
-.PHONY : FlightSimulator/fast
+Flight_Simulator/fast:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/build
+.PHONY : Flight_Simulator/fast
 
 Client/Client.o: Client/Client.cpp.o
 
@@ -129,7 +129,7 @@ Client/Client.o: Client/Client.cpp.o
 
 # target to build an object file
 Client/Client.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Client/Client.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Client/Client.cpp.o
 .PHONY : Client/Client.cpp.o
 
 Client/Client.i: Client/Client.cpp.i
@@ -138,7 +138,7 @@ Client/Client.i: Client/Client.cpp.i
 
 # target to preprocess a source file
 Client/Client.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Client/Client.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Client/Client.cpp.i
 .PHONY : Client/Client.cpp.i
 
 Client/Client.s: Client/Client.cpp.s
@@ -147,7 +147,7 @@ Client/Client.s: Client/Client.cpp.s
 
 # target to generate assembly for a file
 Client/Client.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Client/Client.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Client/Client.cpp.s
 .PHONY : Client/Client.cpp.s
 
 Commands/Condition.o: Commands/Condition.cpp.o
@@ -156,7 +156,7 @@ Commands/Condition.o: Commands/Condition.cpp.o
 
 # target to build an object file
 Commands/Condition.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/Condition.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/Condition.cpp.o
 .PHONY : Commands/Condition.cpp.o
 
 Commands/Condition.i: Commands/Condition.cpp.i
@@ -165,7 +165,7 @@ Commands/Condition.i: Commands/Condition.cpp.i
 
 # target to preprocess a source file
 Commands/Condition.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/Condition.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/Condition.cpp.i
 .PHONY : Commands/Condition.cpp.i
 
 Commands/Condition.s: Commands/Condition.cpp.s
@@ -174,7 +174,7 @@ Commands/Condition.s: Commands/Condition.cpp.s
 
 # target to generate assembly for a file
 Commands/Condition.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/Condition.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/Condition.cpp.s
 .PHONY : Commands/Condition.cpp.s
 
 Commands/Connect.o: Commands/Connect.cpp.o
@@ -183,7 +183,7 @@ Commands/Connect.o: Commands/Connect.cpp.o
 
 # target to build an object file
 Commands/Connect.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/Connect.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/Connect.cpp.o
 .PHONY : Commands/Connect.cpp.o
 
 Commands/Connect.i: Commands/Connect.cpp.i
@@ -192,7 +192,7 @@ Commands/Connect.i: Commands/Connect.cpp.i
 
 # target to preprocess a source file
 Commands/Connect.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/Connect.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/Connect.cpp.i
 .PHONY : Commands/Connect.cpp.i
 
 Commands/Connect.s: Commands/Connect.cpp.s
@@ -201,7 +201,7 @@ Commands/Connect.s: Commands/Connect.cpp.s
 
 # target to generate assembly for a file
 Commands/Connect.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/Connect.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/Connect.cpp.s
 .PHONY : Commands/Connect.cpp.s
 
 Commands/DefineVar.o: Commands/DefineVar.cpp.o
@@ -210,7 +210,7 @@ Commands/DefineVar.o: Commands/DefineVar.cpp.o
 
 # target to build an object file
 Commands/DefineVar.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/DefineVar.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/DefineVar.cpp.o
 .PHONY : Commands/DefineVar.cpp.o
 
 Commands/DefineVar.i: Commands/DefineVar.cpp.i
@@ -219,7 +219,7 @@ Commands/DefineVar.i: Commands/DefineVar.cpp.i
 
 # target to preprocess a source file
 Commands/DefineVar.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/DefineVar.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/DefineVar.cpp.i
 .PHONY : Commands/DefineVar.cpp.i
 
 Commands/DefineVar.s: Commands/DefineVar.cpp.s
@@ -228,7 +228,7 @@ Commands/DefineVar.s: Commands/DefineVar.cpp.s
 
 # target to generate assembly for a file
 Commands/DefineVar.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/DefineVar.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/DefineVar.cpp.s
 .PHONY : Commands/DefineVar.cpp.s
 
 Commands/If.o: Commands/If.cpp.o
@@ -237,7 +237,7 @@ Commands/If.o: Commands/If.cpp.o
 
 # target to build an object file
 Commands/If.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/If.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/If.cpp.o
 .PHONY : Commands/If.cpp.o
 
 Commands/If.i: Commands/If.cpp.i
@@ -246,7 +246,7 @@ Commands/If.i: Commands/If.cpp.i
 
 # target to preprocess a source file
 Commands/If.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/If.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/If.cpp.i
 .PHONY : Commands/If.cpp.i
 
 Commands/If.s: Commands/If.cpp.s
@@ -255,7 +255,7 @@ Commands/If.s: Commands/If.cpp.s
 
 # target to generate assembly for a file
 Commands/If.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/If.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/If.cpp.s
 .PHONY : Commands/If.cpp.s
 
 Commands/OpenServer.o: Commands/OpenServer.cpp.o
@@ -264,7 +264,7 @@ Commands/OpenServer.o: Commands/OpenServer.cpp.o
 
 # target to build an object file
 Commands/OpenServer.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/OpenServer.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/OpenServer.cpp.o
 .PHONY : Commands/OpenServer.cpp.o
 
 Commands/OpenServer.i: Commands/OpenServer.cpp.i
@@ -273,7 +273,7 @@ Commands/OpenServer.i: Commands/OpenServer.cpp.i
 
 # target to preprocess a source file
 Commands/OpenServer.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/OpenServer.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/OpenServer.cpp.i
 .PHONY : Commands/OpenServer.cpp.i
 
 Commands/OpenServer.s: Commands/OpenServer.cpp.s
@@ -282,7 +282,7 @@ Commands/OpenServer.s: Commands/OpenServer.cpp.s
 
 # target to generate assembly for a file
 Commands/OpenServer.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/OpenServer.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/OpenServer.cpp.s
 .PHONY : Commands/OpenServer.cpp.s
 
 Commands/PutVar.o: Commands/PutVar.cpp.o
@@ -291,7 +291,7 @@ Commands/PutVar.o: Commands/PutVar.cpp.o
 
 # target to build an object file
 Commands/PutVar.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/PutVar.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/PutVar.cpp.o
 .PHONY : Commands/PutVar.cpp.o
 
 Commands/PutVar.i: Commands/PutVar.cpp.i
@@ -300,7 +300,7 @@ Commands/PutVar.i: Commands/PutVar.cpp.i
 
 # target to preprocess a source file
 Commands/PutVar.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/PutVar.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/PutVar.cpp.i
 .PHONY : Commands/PutVar.cpp.i
 
 Commands/PutVar.s: Commands/PutVar.cpp.s
@@ -309,7 +309,7 @@ Commands/PutVar.s: Commands/PutVar.cpp.s
 
 # target to generate assembly for a file
 Commands/PutVar.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/PutVar.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/PutVar.cpp.s
 .PHONY : Commands/PutVar.cpp.s
 
 Commands/While.o: Commands/While.cpp.o
@@ -318,7 +318,7 @@ Commands/While.o: Commands/While.cpp.o
 
 # target to build an object file
 Commands/While.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/While.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/While.cpp.o
 .PHONY : Commands/While.cpp.o
 
 Commands/While.i: Commands/While.cpp.i
@@ -327,7 +327,7 @@ Commands/While.i: Commands/While.cpp.i
 
 # target to preprocess a source file
 Commands/While.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/While.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/While.cpp.i
 .PHONY : Commands/While.cpp.i
 
 Commands/While.s: Commands/While.cpp.s
@@ -336,8 +336,170 @@ Commands/While.s: Commands/While.cpp.s
 
 # target to generate assembly for a file
 Commands/While.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Commands/While.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Commands/While.cpp.s
 .PHONY : Commands/While.cpp.s
+
+Expressions/BinaryExpression.o: Expressions/BinaryExpression.cpp.o
+
+.PHONY : Expressions/BinaryExpression.o
+
+# target to build an object file
+Expressions/BinaryExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/BinaryExpression.cpp.o
+.PHONY : Expressions/BinaryExpression.cpp.o
+
+Expressions/BinaryExpression.i: Expressions/BinaryExpression.cpp.i
+
+.PHONY : Expressions/BinaryExpression.i
+
+# target to preprocess a source file
+Expressions/BinaryExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/BinaryExpression.cpp.i
+.PHONY : Expressions/BinaryExpression.cpp.i
+
+Expressions/BinaryExpression.s: Expressions/BinaryExpression.cpp.s
+
+.PHONY : Expressions/BinaryExpression.s
+
+# target to generate assembly for a file
+Expressions/BinaryExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/BinaryExpression.cpp.s
+.PHONY : Expressions/BinaryExpression.cpp.s
+
+Expressions/Expression.o: Expressions/Expression.cpp.o
+
+.PHONY : Expressions/Expression.o
+
+# target to build an object file
+Expressions/Expression.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Expression.cpp.o
+.PHONY : Expressions/Expression.cpp.o
+
+Expressions/Expression.i: Expressions/Expression.cpp.i
+
+.PHONY : Expressions/Expression.i
+
+# target to preprocess a source file
+Expressions/Expression.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Expression.cpp.i
+.PHONY : Expressions/Expression.cpp.i
+
+Expressions/Expression.s: Expressions/Expression.cpp.s
+
+.PHONY : Expressions/Expression.s
+
+# target to generate assembly for a file
+Expressions/Expression.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Expression.cpp.s
+.PHONY : Expressions/Expression.cpp.s
+
+Expressions/Minus.o: Expressions/Minus.cpp.o
+
+.PHONY : Expressions/Minus.o
+
+# target to build an object file
+Expressions/Minus.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Minus.cpp.o
+.PHONY : Expressions/Minus.cpp.o
+
+Expressions/Minus.i: Expressions/Minus.cpp.i
+
+.PHONY : Expressions/Minus.i
+
+# target to preprocess a source file
+Expressions/Minus.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Minus.cpp.i
+.PHONY : Expressions/Minus.cpp.i
+
+Expressions/Minus.s: Expressions/Minus.cpp.s
+
+.PHONY : Expressions/Minus.s
+
+# target to generate assembly for a file
+Expressions/Minus.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Minus.cpp.s
+.PHONY : Expressions/Minus.cpp.s
+
+Expressions/Number.o: Expressions/Number.cpp.o
+
+.PHONY : Expressions/Number.o
+
+# target to build an object file
+Expressions/Number.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Number.cpp.o
+.PHONY : Expressions/Number.cpp.o
+
+Expressions/Number.i: Expressions/Number.cpp.i
+
+.PHONY : Expressions/Number.i
+
+# target to preprocess a source file
+Expressions/Number.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Number.cpp.i
+.PHONY : Expressions/Number.cpp.i
+
+Expressions/Number.s: Expressions/Number.cpp.s
+
+.PHONY : Expressions/Number.s
+
+# target to generate assembly for a file
+Expressions/Number.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Number.cpp.s
+.PHONY : Expressions/Number.cpp.s
+
+Expressions/Plus.o: Expressions/Plus.cpp.o
+
+.PHONY : Expressions/Plus.o
+
+# target to build an object file
+Expressions/Plus.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Plus.cpp.o
+.PHONY : Expressions/Plus.cpp.o
+
+Expressions/Plus.i: Expressions/Plus.cpp.i
+
+.PHONY : Expressions/Plus.i
+
+# target to preprocess a source file
+Expressions/Plus.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Plus.cpp.i
+.PHONY : Expressions/Plus.cpp.i
+
+Expressions/Plus.s: Expressions/Plus.cpp.s
+
+.PHONY : Expressions/Plus.s
+
+# target to generate assembly for a file
+Expressions/Plus.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Plus.cpp.s
+.PHONY : Expressions/Plus.cpp.s
+
+Expressions/Variable.o: Expressions/Variable.cpp.o
+
+.PHONY : Expressions/Variable.o
+
+# target to build an object file
+Expressions/Variable.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Variable.cpp.o
+.PHONY : Expressions/Variable.cpp.o
+
+Expressions/Variable.i: Expressions/Variable.cpp.i
+
+.PHONY : Expressions/Variable.i
+
+# target to preprocess a source file
+Expressions/Variable.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Variable.cpp.i
+.PHONY : Expressions/Variable.cpp.i
+
+Expressions/Variable.s: Expressions/Variable.cpp.s
+
+.PHONY : Expressions/Variable.s
+
+# target to generate assembly for a file
+Expressions/Variable.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Expressions/Variable.cpp.s
+.PHONY : Expressions/Variable.cpp.s
 
 Interpreter/Interpreter.o: Interpreter/Interpreter.cpp.o
 
@@ -345,7 +507,7 @@ Interpreter/Interpreter.o: Interpreter/Interpreter.cpp.o
 
 # target to build an object file
 Interpreter/Interpreter.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/Interpreter.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/Interpreter.cpp.o
 .PHONY : Interpreter/Interpreter.cpp.o
 
 Interpreter/Interpreter.i: Interpreter/Interpreter.cpp.i
@@ -354,7 +516,7 @@ Interpreter/Interpreter.i: Interpreter/Interpreter.cpp.i
 
 # target to preprocess a source file
 Interpreter/Interpreter.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/Interpreter.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/Interpreter.cpp.i
 .PHONY : Interpreter/Interpreter.cpp.i
 
 Interpreter/Interpreter.s: Interpreter/Interpreter.cpp.s
@@ -363,7 +525,7 @@ Interpreter/Interpreter.s: Interpreter/Interpreter.cpp.s
 
 # target to generate assembly for a file
 Interpreter/Interpreter.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/Interpreter.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/Interpreter.cpp.s
 .PHONY : Interpreter/Interpreter.cpp.s
 
 Interpreter/Symbol.o: Interpreter/Symbol.cpp.o
@@ -372,7 +534,7 @@ Interpreter/Symbol.o: Interpreter/Symbol.cpp.o
 
 # target to build an object file
 Interpreter/Symbol.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/Symbol.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/Symbol.cpp.o
 .PHONY : Interpreter/Symbol.cpp.o
 
 Interpreter/Symbol.i: Interpreter/Symbol.cpp.i
@@ -381,7 +543,7 @@ Interpreter/Symbol.i: Interpreter/Symbol.cpp.i
 
 # target to preprocess a source file
 Interpreter/Symbol.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/Symbol.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/Symbol.cpp.i
 .PHONY : Interpreter/Symbol.cpp.i
 
 Interpreter/Symbol.s: Interpreter/Symbol.cpp.s
@@ -390,7 +552,7 @@ Interpreter/Symbol.s: Interpreter/Symbol.cpp.s
 
 # target to generate assembly for a file
 Interpreter/Symbol.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/Symbol.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/Symbol.cpp.s
 .PHONY : Interpreter/Symbol.cpp.s
 
 Interpreter/SymbolMap.o: Interpreter/SymbolMap.cpp.o
@@ -399,7 +561,7 @@ Interpreter/SymbolMap.o: Interpreter/SymbolMap.cpp.o
 
 # target to build an object file
 Interpreter/SymbolMap.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/SymbolMap.cpp.o
 .PHONY : Interpreter/SymbolMap.cpp.o
 
 Interpreter/SymbolMap.i: Interpreter/SymbolMap.cpp.i
@@ -408,7 +570,7 @@ Interpreter/SymbolMap.i: Interpreter/SymbolMap.cpp.i
 
 # target to preprocess a source file
 Interpreter/SymbolMap.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/SymbolMap.cpp.i
 .PHONY : Interpreter/SymbolMap.cpp.i
 
 Interpreter/SymbolMap.s: Interpreter/SymbolMap.cpp.s
@@ -417,7 +579,7 @@ Interpreter/SymbolMap.s: Interpreter/SymbolMap.cpp.s
 
 # target to generate assembly for a file
 Interpreter/SymbolMap.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Interpreter/SymbolMap.cpp.s
 .PHONY : Interpreter/SymbolMap.cpp.s
 
 Lexer/CodeRow.o: Lexer/CodeRow.cpp.o
@@ -426,7 +588,7 @@ Lexer/CodeRow.o: Lexer/CodeRow.cpp.o
 
 # target to build an object file
 Lexer/CodeRow.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Lexer/CodeRow.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Lexer/CodeRow.cpp.o
 .PHONY : Lexer/CodeRow.cpp.o
 
 Lexer/CodeRow.i: Lexer/CodeRow.cpp.i
@@ -435,7 +597,7 @@ Lexer/CodeRow.i: Lexer/CodeRow.cpp.i
 
 # target to preprocess a source file
 Lexer/CodeRow.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Lexer/CodeRow.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Lexer/CodeRow.cpp.i
 .PHONY : Lexer/CodeRow.cpp.i
 
 Lexer/CodeRow.s: Lexer/CodeRow.cpp.s
@@ -444,7 +606,7 @@ Lexer/CodeRow.s: Lexer/CodeRow.cpp.s
 
 # target to generate assembly for a file
 Lexer/CodeRow.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Lexer/CodeRow.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Lexer/CodeRow.cpp.s
 .PHONY : Lexer/CodeRow.cpp.s
 
 Lexer/Lexer.o: Lexer/Lexer.cpp.o
@@ -453,7 +615,7 @@ Lexer/Lexer.o: Lexer/Lexer.cpp.o
 
 # target to build an object file
 Lexer/Lexer.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Lexer/Lexer.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Lexer/Lexer.cpp.o
 .PHONY : Lexer/Lexer.cpp.o
 
 Lexer/Lexer.i: Lexer/Lexer.cpp.i
@@ -462,7 +624,7 @@ Lexer/Lexer.i: Lexer/Lexer.cpp.i
 
 # target to preprocess a source file
 Lexer/Lexer.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Lexer/Lexer.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Lexer/Lexer.cpp.i
 .PHONY : Lexer/Lexer.cpp.i
 
 Lexer/Lexer.s: Lexer/Lexer.cpp.s
@@ -471,7 +633,7 @@ Lexer/Lexer.s: Lexer/Lexer.cpp.s
 
 # target to generate assembly for a file
 Lexer/Lexer.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Lexer/Lexer.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Lexer/Lexer.cpp.s
 .PHONY : Lexer/Lexer.cpp.s
 
 Parser/Parser.o: Parser/Parser.cpp.o
@@ -480,7 +642,7 @@ Parser/Parser.o: Parser/Parser.cpp.o
 
 # target to build an object file
 Parser/Parser.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Parser/Parser.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Parser/Parser.cpp.o
 .PHONY : Parser/Parser.cpp.o
 
 Parser/Parser.i: Parser/Parser.cpp.i
@@ -489,7 +651,7 @@ Parser/Parser.i: Parser/Parser.cpp.i
 
 # target to preprocess a source file
 Parser/Parser.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Parser/Parser.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Parser/Parser.cpp.i
 .PHONY : Parser/Parser.cpp.i
 
 Parser/Parser.s: Parser/Parser.cpp.s
@@ -498,7 +660,7 @@ Parser/Parser.s: Parser/Parser.cpp.s
 
 # target to generate assembly for a file
 Parser/Parser.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Parser/Parser.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Parser/Parser.cpp.s
 .PHONY : Parser/Parser.cpp.s
 
 Server/Server.o: Server/Server.cpp.o
@@ -507,7 +669,7 @@ Server/Server.o: Server/Server.cpp.o
 
 # target to build an object file
 Server/Server.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Server/Server.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Server/Server.cpp.o
 .PHONY : Server/Server.cpp.o
 
 Server/Server.i: Server/Server.cpp.i
@@ -516,7 +678,7 @@ Server/Server.i: Server/Server.cpp.i
 
 # target to preprocess a source file
 Server/Server.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Server/Server.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Server/Server.cpp.i
 .PHONY : Server/Server.cpp.i
 
 Server/Server.s: Server/Server.cpp.s
@@ -525,7 +687,7 @@ Server/Server.s: Server/Server.cpp.s
 
 # target to generate assembly for a file
 Server/Server.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/Server/Server.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/Server/Server.cpp.s
 .PHONY : Server/Server.cpp.s
 
 main.o: main.cpp.o
@@ -534,7 +696,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -543,7 +705,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -552,7 +714,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/FlightSimulator.dir/build.make CMakeFiles/FlightSimulator.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -562,7 +724,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... FlightSimulator"
+	@echo "... Flight_Simulator"
 	@echo "... edit_cache"
 	@echo "... Client/Client.o"
 	@echo "... Client/Client.i"
@@ -588,6 +750,24 @@ help:
 	@echo "... Commands/While.o"
 	@echo "... Commands/While.i"
 	@echo "... Commands/While.s"
+	@echo "... Expressions/BinaryExpression.o"
+	@echo "... Expressions/BinaryExpression.i"
+	@echo "... Expressions/BinaryExpression.s"
+	@echo "... Expressions/Expression.o"
+	@echo "... Expressions/Expression.i"
+	@echo "... Expressions/Expression.s"
+	@echo "... Expressions/Minus.o"
+	@echo "... Expressions/Minus.i"
+	@echo "... Expressions/Minus.s"
+	@echo "... Expressions/Number.o"
+	@echo "... Expressions/Number.i"
+	@echo "... Expressions/Number.s"
+	@echo "... Expressions/Plus.o"
+	@echo "... Expressions/Plus.i"
+	@echo "... Expressions/Plus.s"
+	@echo "... Expressions/Variable.o"
+	@echo "... Expressions/Variable.i"
+	@echo "... Expressions/Variable.s"
 	@echo "... Interpreter/Interpreter.o"
 	@echo "... Interpreter/Interpreter.i"
 	@echo "... Interpreter/Interpreter.s"
