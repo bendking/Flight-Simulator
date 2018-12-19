@@ -15,6 +15,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/FlightSimulator.dir/Interpreter/SymbolMap.cpp.o"
   "CMakeFiles/FlightSimulator.dir/Client/Client.cpp.o"
   "CMakeFiles/FlightSimulator.dir/Server/Server.cpp.o"
+  "CMakeFiles/FlightSimulator.dir/Expressions/Expression.cpp.o"
+  "CMakeFiles/FlightSimulator.dir/Expressions/BinaryExpression.cpp.o"
+  "CMakeFiles/FlightSimulator.dir/Expressions/Number.cpp.o"
+  "CMakeFiles/FlightSimulator.dir/Expressions/Plus.cpp.o"
+  "CMakeFiles/FlightSimulator.dir/Expressions/Minus.cpp.o"
+  "CMakeFiles/FlightSimulator.dir/Expressions/Variable.cpp.o"
   "FlightSimulator.pdb"
   "FlightSimulator"
 )

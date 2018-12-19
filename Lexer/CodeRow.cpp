@@ -9,6 +9,9 @@ void CodeRow::readNextRow(std::istream& str) {
     std::string line;
     std::getline(str, line);
 
+    //format the line
+    line = normalizeLine(line);
+
     // Put line in stringstream
     std::stringstream lineStream(line);
     readRow(lineStream);
