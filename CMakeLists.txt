@@ -1,6 +1,59 @@
 cmake_minimum_required(VERSION 3.13)
-project(FlightSimulator)
+project(Flight_Simulator)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(FlightSimulator main.cpp Lexer/Lexer.cpp Lexer/Lexer.h Lexer/CodeRow.cpp Lexer/CodeRow.h Parser/Parser.cpp Parser/Parser.h Commands/Command.h Commands/DefineVar.cpp Commands/DefineVar.h Commands/OpenServer.cpp Commands/OpenServer.h Commands/Connect.cpp Commands/Connect.h Commands/Condition.cpp Commands/Condition.h Commands/If.cpp Commands/If.h Commands/While.cpp Commands/While.h Interpreter/Interpreter.cpp Interpreter/Interpreter.h Interpreter/Symbol.cpp Interpreter/Symbol.h Commands/PutBind.h Interpreter/SymbolMap.h Commands/PutVar.cpp Commands/PutVar.h Interpreter/SymbolMap.cpp Client/Client.cpp Client/Client.h Server/Server.cpp Server/Server.h Expressions/Expression.cpp Expressions/Expression.h Expressions/BinaryExpression.cpp Expressions/BinaryExpression.h Expressions/Number.cpp Expressions/Number.h Expressions/Plus.cpp Expressions/Plus.h Expressions/Minus.cpp Expressions/Minus.h Expressions/Variable.cpp Expressions/Variable.h)
+include_directories(Client)
+include_directories(Commands)
+include_directories(Expressions)
+include_directories(Interpreter)
+include_directories(Lexer)
+include_directories(Parser)
+include_directories(Server)
+
+add_executable(Flight_Simulator
+        Client/Client.cpp
+        Client/Client.h
+        Commands/Command.h
+        Commands/Condition.cpp
+        Commands/Condition.h
+        Commands/Connect.cpp
+        Commands/Connect.h
+        Commands/DefineVar.cpp
+        Commands/DefineVar.h
+        Commands/If.cpp
+        Commands/If.h
+        Commands/OpenServer.cpp
+        Commands/OpenServer.h
+        Commands/PutBind.h
+        Commands/PutVar.cpp
+        Commands/PutVar.h
+        Commands/While.cpp
+        Commands/While.h
+        Expressions/BinaryExpression.cpp
+        Expressions/BinaryExpression.h
+        Expressions/Expression.cpp
+        Expressions/Expression.h
+        Expressions/Minus.cpp
+        Expressions/Minus.h
+        Expressions/Number.cpp
+        Expressions/Number.h
+        Expressions/Plus.cpp
+        Expressions/Plus.h
+        Expressions/Variable.cpp
+        Expressions/Variable.h
+        Interpreter/Interpreter.cpp
+        Interpreter/Interpreter.h
+        Interpreter/Symbol.cpp
+        Interpreter/Symbol.h
+        Interpreter/SymbolMap.cpp
+        Interpreter/SymbolMap.h
+        Lexer/CodeRow.cpp
+        Lexer/CodeRow.h
+        Lexer/Lexer.cpp
+        Lexer/Lexer.h
+        Parser/Parser.cpp
+        Parser/Parser.h
+        Server/Server.cpp
+        Server/Server.h
+        main.cpp)

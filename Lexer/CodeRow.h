@@ -30,6 +30,8 @@ public:
 
     std::size_t size() const;
     bool isEmpty() const;
+
+    std::string normalizeLine(std::string line);
     std::string const& operator[](std::size_t index) const {
         return m_data[index];
     }
