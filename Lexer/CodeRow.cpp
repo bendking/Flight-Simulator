@@ -101,8 +101,80 @@ std::vector<std::string> CodeRow::getArgs() {
     return m_data;
 }
 
+// order the line format
+std::string CodeRow::normalizeLine(std::string line) {
+    std::string normalLine = line;
+
+    //add spaces before and after '='
+    int i = 0;
+    for(char& c : line) {
+        if (c == '=') {
+            normalLine.insert(i ," ");
+            normalLine.insert(i+2 ," ");
+            i+=2;
+        }
+        i++;
+    }
+    line = normalLine;
+
+    //remove spaces in expressions
+    i = 0;
+    for(char& c : line) {
+
+        if (c == '/' || c == '*' || c == '+') {
+            while (normalLine[i - 1] == ' ') {
+                normalLine.erase(i-1, 1);
+                i --;
+            }
+            while (normalLine[i + 1] == ' ') {
+                normalLine.erase(i+1, 1);
+                i --;
+            }
+        }
+
+        if (c == '-') {
+            while (normalLine[i - 1] == ' ' && normalLine[i - 2] != '=') {
+                normalLine.erase(i-1, 1);
+                i --;
+            }
+            while (normalLine[i + 1] == ' ') {
+                normalLine.erase(i+1, 1);
+                i --;
+            }
+        }
+
+        if (c == ')') {
+            while (normalLine[i - 1] == ' ') {
+                normalLine.erase(i-1, 1);
+                i --;
+            }
+        }
+        if (c == '(') {
+            while (normalLine[i + 1] == ' ') {
+                normalLine.erase(i+1, 1);
+                i --;
+            }
+        }
+        i++;
+    }
+
+    // Replace every comma with space
+    i = 0;
+    for(char& c : normalLine) {
+        if(c == ',') {
+            normalLine.erase(i, 1);
+            normalLine.insert(i ," ");
+        }
+
+        i++;
+    }
+
+    return normalLine;
+}
+
 std::vector<std::string> CodeRow::getArgsWithoutLast() {
     std::vector<std::string> returnVector = m_data;
     returnVector.pop_back(); // Remove last argument
     return returnVector;
+
 }
