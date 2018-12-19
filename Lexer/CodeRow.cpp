@@ -9,6 +9,9 @@ void CodeRow::readNextRow(std::istream& str) {
     std::string line;
     std::getline(str, line);
 
+    //format the line
+    line = normalizeLine(line);
+
     // Put line in stringstream
     std::stringstream lineStream(line);
     readRow(lineStream);
@@ -61,4 +64,19 @@ int CodeRow::indexOf(std::string param) const {
 // Returns a split of the arguments entered
 std::vector<std::string> CodeRow::getArgs() {
     return m_data;
+}
+
+// order the line format
+std::string CodeRow::normalizeLine(std::string line) {
+    std::string normalLine = line;
+    int i = 0;
+    for(char& c : line) {
+        if (c == '=') {
+            normalLine.insert(i ," ");
+            normalLine.insert(i+2 ," ");
+            i+=2;
+        }
+        i++;
+    }
+    return normalLine;
 }
