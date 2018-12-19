@@ -33,6 +33,7 @@ public:
 private:
     // Interpretations
     Command* interpretNextRow();
+    Command* interpretNextBlockRow(Command* nextCommand, bool* exit);
     Command* interpretLine(std::string line);
     Command* interpret(CodeRow& row);
     // Unique interpretations
