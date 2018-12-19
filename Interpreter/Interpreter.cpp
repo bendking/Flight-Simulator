@@ -71,6 +71,29 @@ Command* Interpreter::interpretNextRow() {
     }
 }
 
+// Interpret next command in file (script style)
+Command* Interpreter::interpretNextBlockRow(Command* nextCommand, bool* exit) {
+    CodeRow lexedLine = lexer.nextRow(); // Line to be parsed
+    // If empty row or '}': null command
+    if (lexedLine.isEmpty() || lexedLine[0].front() == '}'){
+        nextCommand = nullptr;
+    }
+        // Check for curly brackets at beginning/ending of the line
+    else {
+        // If first letter is '{', ignore it
+        if (lexedLine[0].front() == '{') {
+            lexedLine.removeFirstLetter(); // Remove first letter '{'
+        }
+        // If last letter is '}', add command then exit
+        if (lexedLine[lexedLine.size()-1].back() == '}') {
+            lexedLine.removeLastLetter(); // Remove last letter '}'
+            *exit = true; // Mark to exit after adding this command
+        }
+        // Finally, interpret line normally
+        nextCommand = interpret(lexedLine);
+    }
+}
+
 // Interpret a specific line given (command line style)
 Command* Interpreter::interpretLine(std::string line) {
     return interpret(lexer.lexLine(line));
@@ -105,23 +128,43 @@ Command* Interpreter::interpret(CodeRow& lexedLine) {
 //
 
 Command* Interpreter::interpretIf(CodeRow& row) {
+    // Make sure to remove '{' if it's on the same line as the If
+    if (row.lastLetter() == '{') {
+        row.removeLastLetter();
+    }
+    // Initialize If
     If* thisIf = new If(row.getArgs());
+    // Set commands inside block
     setBlock(thisIf);
     return thisIf;
 }
 
 Command* Interpreter::interpretWhile(CodeRow &row) {
+    // Make sure to remove '{' if it's on the same line as the While
+    if (row.lastLetter() == '{') {
+        row.removeLastLetter();
+    }
+    // Initialize While
     While* thisWhile = new While(row.getArgs());
+    // Set commands inside block
     setBlock(thisWhile);
     return thisWhile;
 }
 
 // Add commands inside condition block to its command list
 void Interpreter::setBlock(Condition* condition) {
-    Command* nextCommand = interpretNextRow();
+    bool exit = false;
+    Command* nextCommand; // Command to be added
+
+    interpretNextBlockRow(nextCommand, &exit);
     // Add all commands to this If block until '}' or EOF reached
     while (nextCommand != nullptr) {
         condition->addCommand(nextCommand);
-        nextCommand = interpretNextRow();
+        // Don't interpret next line
+        if (exit) {
+            break;
+        }
+        // Interpret next line
+        nextCommand = interpretNextBlockRow(nextCommand, &exit);
     }
 }

@@ -19,10 +19,17 @@ public:
     void readNextRow(std::istream& str);
     void readRow(std::stringstream &lineStream);
     int indexOf(std::string param) const;
+
     std::vector<std::string> getArgs();
+    std::vector<std::string> getArgsWithoutLast();
+    void removeFirstElement();
+    void removeLastElement();
+    void removeFirstLetter();
+    void removeLastLetter();
+    char& lastLetter();
+
     std::size_t size() const;
     bool isEmpty() const;
-
     std::string const& operator[](std::size_t index) const {
         return m_data[index];
     }
