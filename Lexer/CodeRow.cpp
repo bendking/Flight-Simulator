@@ -69,6 +69,8 @@ std::vector<std::string> CodeRow::getArgs() {
 // order the line format
 std::string CodeRow::normalizeLine(std::string line) {
     std::string normalLine = line;
+
+    //add spaces before and after '='
     int i = 0;
     for(char& c : line) {
         if (c == '=') {
@@ -78,5 +80,59 @@ std::string CodeRow::normalizeLine(std::string line) {
         }
         i++;
     }
+    line = normalLine;
+
+    //remove spaces in expressions
+    i = 0;
+    for(char& c : line) {
+
+        if (c == '/' || c == '*' || c == '+') {
+            while (normalLine[i - 1] == ' ') {
+                normalLine.erase(i-1, 1);
+                i --;
+            }
+            while (normalLine[i + 1] == ' ') {
+                normalLine.erase(i+1, 1);
+                i --;
+            }
+        }
+
+        if (c == '-') {
+            while (normalLine[i - 1] == ' ' && normalLine[i - 2] != '=') {
+                normalLine.erase(i-1, 1);
+                i --;
+            }
+            while (normalLine[i + 1] == ' ') {
+                normalLine.erase(i+1, 1);
+                i --;
+            }
+        }
+
+        if (c == ')') {
+            while (normalLine[i - 1] == ' ') {
+                normalLine.erase(i-1, 1);
+                i --;
+            }
+        }
+        if (c == '(') {
+            while (normalLine[i + 1] == ' ') {
+                normalLine.erase(i+1, 1);
+                i --;
+            }
+        }
+        i++;
+    }
+
+    // Replace every comma with space
+    i = 0;
+    for(char& c : normalLine) {
+        if(c == ',') {
+            normalLine.erase(i, 1);
+            normalLine.insert(i ," ");
+        }
+
+        i++;
+    }
+
     return normalLine;
 }
