@@ -7,7 +7,7 @@
 #include <queue>
 #include <stack>
 #include <iostream>
-
+#include "CommandLibrary.h"
 
 Parser::Parser() {
 
@@ -15,6 +15,28 @@ Parser::Parser() {
 // This function takes care of all cases beside If and While, which are taken care of in the interpreter
 Command* Parser::parse(CodeRow& row) {
     // For put value commands (X = ...) the
+
+    std::string commandName = row.getArgs()[0];
+
+    if (commandName == "openDataServer") {
+        new OpenServer();
+    }
+    else if (commandName == "connect") {
+
+    }
+    else if (commandName == "var") {
+
+    }
+    else if (commandName == "print") {
+
+    }
+    else if (commandName == "sleep") {
+
+    }
+    else{
+        //it's a variable name
+    }
+
 
 }
 
