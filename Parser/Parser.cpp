@@ -8,6 +8,11 @@
 #include <stack>
 #include <iostream>
 
+
+Parser::Parser() {
+
+}
+
 bool isNumberOrColons(char c) {
     if ((c >= '0' && c <= '9') || c == '.') {
         return true;
@@ -51,9 +56,7 @@ bool isBefore(char operator1, char operator2) {
 }
 
 
-Parser::Parser() {
 
-}
 
 // This function takes care of all cases beside If and While, which are taken care of in the interpreter
 Command* Parser::parse(CodeRow& row) {
@@ -198,6 +201,8 @@ double Parser::shuntingYard(std::string s) {
             postfix.pop();
         }
     }
+
+    return st.top()->calculate();
 
 }
 
