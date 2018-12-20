@@ -12,6 +12,13 @@
 Parser::Parser() {
 
 }
+// This function takes care of all cases beside If and While, which are taken care of in the interpreter
+Command* Parser::parse(CodeRow& row) {
+    // For put value commands (X = ...) the
+
+}
+
+
 
 bool isNumberOrColons(char c) {
     if ((c >= '0' && c <= '9') || c == '.') {
@@ -55,14 +62,7 @@ bool isBefore(char operator1, char operator2) {
     return false;
 }
 
-
-
-
-// This function takes care of all cases beside If and While, which are taken care of in the interpreter
-Command* Parser::parse(CodeRow& row) {
-    // For put value commands (X = ...) the
-}
-
+// The shunting yard
 double Parser::shuntingYard(std::string s) {
 
     std::queue<std::string> postfix;
@@ -202,7 +202,11 @@ double Parser::shuntingYard(std::string s) {
         }
     }
 
-    return st.top()->calculate();
+    double result = st.top()->calculate();
+    Expression* p = st.top();
+    st.pop();
+    delete p;
+    return result;
 
 }
 

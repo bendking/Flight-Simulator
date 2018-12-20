@@ -15,6 +15,8 @@ public:
 
     double calculate();
 
+    ~UnaryMinus();
+
 };
 
 

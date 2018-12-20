@@ -11,3 +11,7 @@ UnaryMinus::UnaryMinus(Expression *_exp) {
 double UnaryMinus::calculate() {
     return  -1 * exp->calculate();
 }
+
+UnaryMinus::~UnaryMinus() {
+    delete exp;
+}
