@@ -1,3 +1,0 @@
-/home/ben/Flight-Simulator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/ben/Flight-Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir
-/home/ben/Flight-Simulator/cmake-build-debug/CMakeFiles/edit_cache.dir
