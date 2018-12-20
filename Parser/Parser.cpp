@@ -26,9 +26,9 @@ Command* Parser::parse(CodeRow& row) {
         new Connect(args[1], shuntingYard(args[2]));
     }
     else if (commandName == "var") {
-        if (args[4] == "bind") {
+        if (args[3] == "bind") {
             //need to bind
-            return new DefineVar(args[1], args[5]);
+            return new DefineVar(args[1], args[4]);
         } else {
             //number
             Expression *exp = shuntingYard(args[3]);
@@ -38,16 +38,25 @@ Command* Parser::parse(CodeRow& row) {
     else if (commandName == "print") {
         if (args[1][0] == '\"') {
             //need to print all of it
+            return new Print(args[1]);
         } else {
             //need to print a varibale
             return new Print(shuntingYard(args[1]));
         }
     }
     else if (commandName == "sleep") {
-
+        return new Sleep(shuntingYard(args[1]));
     }
     else{
-        //it's a variable name
+        //it's a variable name by PutVar
+        if (args[2] == "bind") {
+            //need to bind
+            return new PutVar(args[0], args[3]);
+        } else {
+            //number
+            Expression *exp = shuntingYard(args[2]);
+            return new PutVar(args[0], exp);
+        }
     }
 
 
@@ -79,6 +88,14 @@ bool isEnglishOrUnderscore(char c) {
     }
     return false;
 }
+
+bool isEnglishOrUnderscoreOrNumber(char c) {
+    if  (isEnglishOrUnderscore(c) || isnumber(c)) {
+        return true;
+    }
+    return false;
+}
+
 //check if operator1 is before operator2
 bool isBefore(char operator1, char operator2) {
 
@@ -160,7 +177,7 @@ Expression* Parser::shuntingYard(std::string s) {
         //in case of variable
         else if (isEnglishOrUnderscore(s[i])) {
             std::string var = "";
-            while (isEnglishOrUnderscore(s[i])) {
+            while (isEnglishOrUnderscoreOrNumber(s[i])) {
                 var += std::string(1, s[i]);
                 i++;
             }

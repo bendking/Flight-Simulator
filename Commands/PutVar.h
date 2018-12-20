@@ -6,11 +6,20 @@
 #define FLIGHTSIMULATOR_PUTVAR_H
 
 #include "Command.h"
+#include "Expression.h"
+
 
 class PutVar : public Command {
+
+    Expression *exp = nullptr;
+    std::string address;
+    std::string name;
+
 public:
+    PutVar(std::string _name, std::string _address);
+    PutVar(std::string _name, Expression * _exp);
+
     void execute();
-    bool isNumber(const std::string &s) const;
 };
 
 

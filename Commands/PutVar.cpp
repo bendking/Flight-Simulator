@@ -4,6 +4,16 @@
 
 #include "PutVar.h"
 
+
+PutVar::PutVar(std::string _name, Expression *_exp) {
+    exp = _exp;
+    name = _name;
+}
+PutVar::PutVar(std::string _name, std::string _address) {
+    address = _address;
+    name = _name;
+}
+
 /*
  * Expected arguments:
  * 0 = variable name
@@ -11,15 +21,10 @@
  */
 void PutVar::execute() {
     // Check whether given a numerical value or bind address
-    if (isNumber(arguments[1])) { // If given number, set value (change value in server)
-        symbolMap[arguments[0]].setValue(stoi(arguments[1]));
+    if (exp != nullptr) { // If given number, set value (pure value variable)
+        symbolMap[name].setValue(exp->calculate());
     } else { // If given bind address, set address (local value will update automatically)
-        symbolMap[arguments[9]].setAddress(arguments[1]);
+        symbolMap[name].setAddress(address);
     }
 }
 
-bool PutVar::isNumber(const std::string &s) const {
-    std::string::const_iterator it = s.begin();
-    while (it != s.end() && std::isdigit(*it)) ++it;
-    return !s.empty() && it == s.end();
-}
