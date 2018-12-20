@@ -21,7 +21,7 @@ public:
     Parser();
 
     Command* parse(CodeRow& row);
-    double shuntingYard(std::string s);
+    Expression* shuntingYard(std::string s);
 };
 
 

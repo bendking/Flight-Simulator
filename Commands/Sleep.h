@@ -10,8 +10,7 @@
 #include "Expression.h"
 
 class Sleep : public Command {
-Expression *a;
-
+    Expression *a;
 public:
     void execute();
 };

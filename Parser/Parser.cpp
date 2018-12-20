@@ -16,19 +16,32 @@ Parser::Parser() {
 Command* Parser::parse(CodeRow& row) {
     // For put value commands (X = ...) the
 
-    std::string commandName = row.getArgs()[0];
+    std::vector<std::string> args= row.getArgs();
+    std::string commandName = args[0];
 
     if (commandName == "openDataServer") {
-        new OpenServer();
+        new OpenServer(shuntingYard(args[1]), shuntingYard(args[2]));
     }
     else if (commandName == "connect") {
-
+        new Connect(args[1], shuntingYard(args[2]));
     }
     else if (commandName == "var") {
-
+        if (args[4] == "bind") {
+            //need to bind
+            return new DefineVar(args[1], args[5]);
+        } else {
+            //number
+            Expression *exp = shuntingYard(args[3]);
+            return new DefineVar(args[1], exp);
+        }
     }
     else if (commandName == "print") {
-
+        if (args[1][0] == '\"') {
+            //need to print all of it
+        } else {
+            //need to print a varibale
+            return new Print(shuntingYard(args[1]));
+        }
     }
     else if (commandName == "sleep") {
 
@@ -85,7 +98,7 @@ bool isBefore(char operator1, char operator2) {
 }
 
 // The shunting yard
-double Parser::shuntingYard(std::string s) {
+Expression* Parser::shuntingYard(std::string s) {
 
     std::queue<std::string> postfix;
     std::stack<char> operators;
@@ -224,11 +237,9 @@ double Parser::shuntingYard(std::string s) {
         }
     }
 
-    double result = st.top()->calculate();
     Expression* p = st.top();
     st.pop();
-    delete p;
-    return result;
+    return p;
 
 }
 

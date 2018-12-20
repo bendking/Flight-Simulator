@@ -9,9 +9,12 @@
 #include "Command.h"
 #include "Expression.h"
 class Print : public Command {
-Expression *a = nullptr;
-std::string str;
+    Expression *a = nullptr;
+    std::string str;
 public:
+    explicit Print(Expression *_a);
+    explicit Print(std::string _str);
+
     void execute();
 };
 

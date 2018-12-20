@@ -7,10 +7,14 @@
 
 
 #include "Command.h"
+#include "Expression.h"
 
 class Connect: public Command {
+std::string ip;
+Expression *port;
+
 public:
-    Connect();
+    Connect(std::string _ip, Expression *_port);
     void execute();
 };
 

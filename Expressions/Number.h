@@ -9,7 +9,7 @@
 #include <string>
 
 class Number : public Expression {
-double num;
+    double num;
 public:
     Number(double d);
     Number(int i);

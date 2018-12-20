@@ -4,6 +4,12 @@
 
 #include "Connect.h"
 
+
+Connect::Connect(std::string _ip, Expression *_port) {
+    ip = _ip;
+    port = _port;
+}
+
 /*
  * Expected arguments:
  * 0 = IP
@@ -12,3 +18,5 @@
 void Connect::execute() {
     // TODO (BEN): Connect to server
 }
+
+

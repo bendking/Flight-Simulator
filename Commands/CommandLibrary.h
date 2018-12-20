@@ -15,6 +15,7 @@
 #include "PutBind.h"
 #include "PutVar.h"
 #include "While.h"
-
+#include "Print.h"
+#include "Sleep.h"
 
 #endif //FLIGHT_SIMULATOR_COMMANDLIBRARY_H

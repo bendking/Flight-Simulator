@@ -10,8 +10,10 @@
 
 class OpenServer: public Command {
 private:
-    Expression *a, *b;
+    Expression *port, *refreshRate;
 public:
+    OpenServer(Expression *a, Expression *b);
+
     void execute();
 };
 
