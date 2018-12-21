@@ -13,3 +13,7 @@ Sleep::Sleep(Expression *_a) {
 void Sleep::execute() {
     // Sleep amount specified
 }
+
+Sleep::~Sleep() {
+    delete a;
+}

@@ -15,7 +15,11 @@ PutVar::PutVar(std::string _name, std::string _address)
     address = _address;
     name = _name;
 }
-
+PutVar::~PutVar() {
+    if (exp != nullptr) {
+        delete exp;
+    }
+}
 /*
  * Expected arguments:
  * 0 = variable name

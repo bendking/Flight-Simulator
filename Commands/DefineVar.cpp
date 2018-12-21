@@ -15,6 +15,12 @@ DefineVar::DefineVar(std::string _name, std::string _address)
     address = _address;
     name = _name;
 }
+
+DefineVar::~DefineVar() {
+    if (exp != nullptr) {
+        delete exp;
+    }
+}
 /*
  * Expected arguments:
  * 0 = variable name
@@ -31,13 +37,3 @@ void DefineVar::execute() {
         symbolMap[name].setAddress(address);
     }
 }
-
-
-/*
-// Check if a given string is a number
-bool DefineVar::isNumber(const std::string &s) const {
-    std::string::const_iterator it = s.begin();
-    while (it != s.end() && std::isdigit(*it)) ++it;
-    return !s.empty() && it == s.end();
-}
- */

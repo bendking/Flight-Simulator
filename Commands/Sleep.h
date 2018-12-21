@@ -14,6 +14,8 @@ class Sleep : public Command {
 public:
     Sleep(Expression *_a);
     void execute();
+
+    ~Sleep();
 };
 
 

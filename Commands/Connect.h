@@ -16,6 +16,8 @@ Expression *port;
 public:
     Connect(std::string _ip, Expression *_port);
     void execute();
+
+    ~Connect();
 };
 
 

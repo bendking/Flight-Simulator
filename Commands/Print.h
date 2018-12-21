@@ -15,6 +15,8 @@ public:
     explicit Print(std::string _str);
     explicit Print(Expression *_a);
     void execute();
+
+    ~Print();
 };
 
 

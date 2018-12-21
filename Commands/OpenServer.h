@@ -15,6 +15,8 @@ public:
     OpenServer(Expression *a, Expression *b);
 
     void execute();
+
+    ~OpenServer();
 };
 
 

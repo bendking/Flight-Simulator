@@ -21,10 +21,12 @@ void *openDataServer(void *arguments)
 
     // TODO (BEN): Open server
 
-
     return NULL;
 }
-
+OpenServer::~OpenServer() {
+    delete port;
+    delete refreshRate;
+}
 /*
  * Expected arguments:
  * 0 = port

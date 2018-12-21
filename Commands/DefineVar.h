@@ -17,7 +17,8 @@ public:
     DefineVar(std::string _name, std::string _address);
     DefineVar(std::string _name, Expression * _exp);
     void execute();
-  //  bool isNumber(const std::string& s) const;
+
+    ~DefineVar();
 };
 
 

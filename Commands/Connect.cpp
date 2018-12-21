@@ -10,6 +10,11 @@ Connect::Connect(std::string _ip, Expression *_port) {
     port = _port;
 }
 
+Connect::~Connect() {
+    delete ip;
+    delete port;
+}
+
 /*
  * Expected arguments:
  * 0 = IP

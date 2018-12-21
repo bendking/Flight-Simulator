@@ -20,6 +20,8 @@ public:
     PutVar(std::string _name, Expression * _exp);
 
     void execute();
+
+    ~PutVar();
 };
 
 

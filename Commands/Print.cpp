@@ -7,7 +7,11 @@ Print::Print(std::string _str) {
 Print::Print(Expression *_a) {
     a = _a;
 }
-
+Print::~Print() {
+    if (a != nullptr) {
+        delete a;
+    }
+}
 // TODO (OFEK)
 void Print::execute()
 {
