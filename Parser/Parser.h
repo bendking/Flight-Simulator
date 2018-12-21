@@ -24,6 +24,7 @@ private:
 public:
     Parser();
     Command* parse(CodeRow& row);
+    Condition* parseCondition(CodeRow& row);
     Expression* shuntingYard(std::string s);
 };
 

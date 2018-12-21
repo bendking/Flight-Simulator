@@ -5,8 +5,10 @@
 #include "Condition.h"
 
 
-Condition::Condition(std::vector<std::string> args) {
-    setCondition(args);
+Condition::Condition(Expression *a, std::string b, Expression *c) {
+    leftExp = a;
+    condition = b;
+    rightExp = c;
 }
 
 Condition::~Condition()
@@ -14,11 +16,11 @@ Condition::~Condition()
     for (Command* command : commands) {
         delete command;
     }
+
+    delete leftExp;
+    delete rightExp;
 }
 
-void Condition::setCondition(std::vector<std::string> args) {
-    condition = args;
-}
 
 void Condition::addCommand(Command* command) {
     commands.push_back(command);
@@ -27,31 +29,30 @@ void Condition::addCommand(Command* command) {
 // TODO (OFEK): Implement expression class
 // Check whether the condition expressed is true
 bool Condition::conditionTrue() {
-//    Expression leftExp(condition[0]);
-//    Expression rightExp(condition[2]);
-//    double leftValue = leftExp.calculate();
-//    double rightValue = rightExp.calculate();
-//
-//    if (condition[1] == "<") {
-//        return (leftValue < rightValue);
-//    }
-//
-//    if (condition[1] == ">") {
-//        return (leftValue > rightValue);
-//    }
-//
-//    if (condition[1] == "==") {
-//        return (leftValue == rightValue);
-//    }
-//
-//    if (condition[1] == ">=") {
-//        return (leftValue >= rightValue);
-//    }
-//
-//    if (condition[1] == "<=") {
-//        return (leftValue <= rightValue);
-//    }
-//
-//    // In case no operand was matched, return false
-//    return false;
+
+    double leftValue = leftExp->calculate();
+    double rightValue = rightExp->calculate();
+
+    if (condition == "<") {
+        return (leftValue < rightValue);
+    }
+
+    if (condition == ">") {
+        return (leftValue > rightValue);
+    }
+
+    if (condition == "==") {
+        return (leftValue == rightValue);
+    }
+
+    if (condition == ">=") {
+        return (leftValue >= rightValue);
+    }
+
+    if (condition == "<=") {
+        return (leftValue <= rightValue);
+    }
+
+    // In case no operand was matched, return false
+    return false;
 }

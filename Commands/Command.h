@@ -9,6 +9,8 @@ class Command {
 
 public:
     virtual void execute() = 0;
+
+    virtual ~Command() = default;
 };
 
 #endif //FLIGHTSIMULATOR_COMMAND_H
