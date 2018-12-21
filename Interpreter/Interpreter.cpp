@@ -146,6 +146,7 @@ Command* Interpreter::interpretWhile(CodeRow &row) {
     }
     // Initialize While
     While* thisWhile = new While(row.getArgs());
+
     // Set commands inside block
     setBlock(thisWhile);
     return thisWhile;

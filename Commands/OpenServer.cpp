@@ -12,3 +12,8 @@
 void OpenServer::execute() {
     // TODO (BEN): Open server
 }
+
+OpenServer::OpenServer(Expression *a, Expression *b) {
+    port = a;
+    refreshRate = b;
+}

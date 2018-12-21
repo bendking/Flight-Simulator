@@ -6,9 +6,14 @@
 #define FLIGHTSIMULATOR_OPENSERVER_H
 
 #include "Command.h"
+#include "Expression.h";
 
 class OpenServer: public Command {
+private:
+    Expression *port, *refreshRate;
 public:
+    OpenServer(Expression *a, Expression *b);
+
     void execute();
 };
 

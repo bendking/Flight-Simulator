@@ -11,6 +11,9 @@
 #include <unordered_map>
 #include "../Commands/Command.h"
 #include "../Lexer/CodeRow.h"
+#include "../Expressions/ExpressionLibrary.h"
+
+
 
 class Parser {
 private:
@@ -18,6 +21,7 @@ public:
     Parser();
 
     Command* parse(CodeRow& row);
+    Expression* shuntingYard(std::string s);
 };
 
 
