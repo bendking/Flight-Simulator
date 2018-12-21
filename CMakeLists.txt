@@ -67,4 +67,4 @@ add_executable(Flight_Simulator
         Server/Server.cpp
         Server/Server.h
         Client/get_client.h
-        Server/get_server.h)
+        Server/get_server.h Client/get_server.h Client/Server.cpp Client/Server.h)

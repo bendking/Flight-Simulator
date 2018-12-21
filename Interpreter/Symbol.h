@@ -6,8 +6,7 @@
 #define FLIGHTSIMULATOR_SYMBOLVALUE_H
 
 #include <string>
-#include <get_server.h>
-#include <get_client.h>
+
 
 /*
  * The purpose of this class is to be used in the SymbolMap the interpreter shall hold.

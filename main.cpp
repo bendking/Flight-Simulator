@@ -3,6 +3,10 @@
 #include "stdio.h"
 #include "Interpreter/Interpreter.h"
 
+#include "../Client/get_client.h"
+#include "../Client/get_server.h"
+
+
 void printCurrentDirectory() {
     char buff[FILENAME_MAX];
     getcwd( buff, FILENAME_MAX );
@@ -20,9 +24,9 @@ void test_client() {
 }
 
 void test_server() {
-    set_server(5400);
-    server.listen_to();
-    cout << server.get_buffer() << endl;
+    //set_server(5400);
+    //server.listen_to();
+    //cout << server.get_buffer() << endl;
 }
 
 int main() {

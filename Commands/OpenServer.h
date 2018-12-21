@@ -14,7 +14,6 @@ private:
 public:
     OpenServer(Expression *a, Expression *b);
     ~OpenServer();
-    void* openDataServer(void *arguments);
     void execute();
 };
 

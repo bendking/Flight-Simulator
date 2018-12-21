@@ -8,6 +8,9 @@
 #include "Command.h"
 #include "Expression.h"
 #include "SymbolMap.h"
+#include "../Client/get_client.h"
+#include "../Client/get_server.h"
+
 
 class Connect: public Command {
 std::string ip;
