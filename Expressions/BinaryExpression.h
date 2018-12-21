@@ -7,12 +7,12 @@
 
 #include "Expression.h"
 
-class BinaryExpression :public Expression {
+class BinaryExpression : public Expression {
 protected:
     Expression *left,*right;
 public:
     BinaryExpression(Expression *a, Expression *b);
-    double calculate() = 0;
+    virtual double calculate() = 0;
 
     ~BinaryExpression();
 };

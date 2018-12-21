@@ -30,16 +30,26 @@ add_executable(Flight_Simulator
         Commands/PutVar.h
         Commands/While.cpp
         Commands/While.h
+        Commands/Sleep.cpp
+        Commands/Sleep.h
+        Commands/Print.cpp
+        Commands/Print.h
         Expressions/BinaryExpression.cpp
         Expressions/BinaryExpression.h
         Expressions/Expression.cpp
         Expressions/Expression.h
-        Expressions/Minus.cpp
-        Expressions/Minus.h
+        Expressions/UnaryMinus.cpp
+        Expressions/UnaryMinus.h
         Expressions/Number.cpp
         Expressions/Number.h
+        Expressions/Minus.cpp
+        Expressions/Minus.h
         Expressions/Plus.cpp
         Expressions/Plus.h
+        Expressions/Division.cpp
+        Expressions/Division.cpp
+        Expressions/Multiply.cpp
+        Expressions/Multiply.h
         Expressions/Variable.cpp
         Expressions/Variable.h
         Interpreter/Interpreter.cpp
@@ -56,4 +66,4 @@ add_executable(Flight_Simulator
         Parser/Parser.h
         Server/Server.cpp
         Server/Server.h
-        main.cpp)
+        main.cpp Client/get_client.h Server/get_server.h)

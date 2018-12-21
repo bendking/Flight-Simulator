@@ -1,4 +1,4 @@
-//
+//client
 // Created by ben on 12/19/18.
 //
 
@@ -69,20 +69,20 @@ string Client::receive(int size = 512)
 }
 
 // TODO: DELETE (example)
-int main(int argc , char *argv[])
-{
-    Client c;
-    string host = "127.0.0.1";
-    c.connect_to(host , 5402);
-
-    // send some data
-    c.send_message("set controls/flight/rudder 1\r\n\r\n");
-
-    // receive and echo reply
-    cout<<"----------------------------\n\n";
-    cout<<c.receive(1024);
-    cout<<"\n\n----------------------------\n\n";
-
-    // done
-    return 0;
-}
+//int main(int argc , char *argv[])
+//{
+//    Client c;
+//    string host = "127.0.0.1";
+//    c.connect_to(host , 5402);
+//
+//    // send some data
+//    c.send_message("set controls/flight/rudder 1\r\n\r\n");
+//
+//    // receive and echo reply
+//    cout<<"----------------------------\n\n";
+//    cout<<c.receive(1024);
+//    cout<<"\n\n----------------------------\n\n";
+//
+//    // done
+//    return 0;
+//}

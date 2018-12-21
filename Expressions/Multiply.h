@@ -9,7 +9,7 @@
 #include "BinaryExpression.h"
 
 class Multiply : public BinaryExpression {
-    using BinaryExpression:: BinaryExpression;
+    using BinaryExpression::BinaryExpression;
 public:
     double calculate();
 };
