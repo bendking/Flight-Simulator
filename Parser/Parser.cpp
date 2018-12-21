@@ -41,7 +41,7 @@ Command* Parser::parse(CodeRow& row)
         }
     }
     else if (commandName == "sleep") {
-        return new Sleep(shuntingYard(args[1])); // TODO (OFEK): undefined reference
+//        return new Sleep(shuntingYard(args[1])); // TODO (OFEK): undefined reference
     }
     else {
         //it's a variable name by PutVar

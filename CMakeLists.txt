@@ -25,7 +25,6 @@ add_executable(Flight_Simulator
         Commands/If.h
         Commands/OpenServer.cpp
         Commands/OpenServer.h
-        Commands/PutBind.h
         Commands/PutVar.cpp
         Commands/PutVar.h
         Commands/While.cpp

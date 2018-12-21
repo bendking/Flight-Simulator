@@ -16,7 +16,7 @@ Connect::Connect(std::string _ip, Expression *_port) {
  * 1 = port
  */
 void Connect::execute() {
-    // TODO (BEN): Connect to server
+    set_client(ip, port->calculate());
 }
 
 
