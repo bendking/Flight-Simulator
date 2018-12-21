@@ -6,7 +6,7 @@
 static Client client;
 static bool client_set = false;
 
-void set_client()
+void set_client(string ip, int port)
 {
     if (!client_set) {
         client = Client();
@@ -15,9 +15,9 @@ void set_client()
     }
 }
 
-Client get_client()
+Client get_client(string ip, int port)
 {
-    set_client();
+    set_client(ip, port);
     return client;
 }
 

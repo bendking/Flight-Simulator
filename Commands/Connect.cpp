@@ -20,7 +20,7 @@ Connect::~Connect() {
  * 1 = port
  */
 void Connect::execute() {
-    // TODO (BEN): Connect to server
+    set_client(ip, port->calculate());
 }
 
 

@@ -7,6 +7,8 @@
 
 
 #include <string>
+#include <get_client.h>
+
 
 /*
  * The purpose of this class is to be used in the SymbolMap the interpreter shall hold.
@@ -16,7 +18,7 @@
 class Symbol {
 private:
     double value;
-    std::string address = "";
+    std::string path = "";
 public:
     explicit Symbol();
     explicit Symbol(double value);
@@ -24,10 +26,10 @@ public:
 
     double getValue() const;
     void setValue(double value);
-    const std::string &getAddress() const;
-    void setAddress(const std::string &address);
+    const std::string &getPath() const;
+    void setPath(const std::string &address);
 
-    bool addressSet();
+    bool pathSet();
     double updateValue();
 };
 

@@ -13,7 +13,7 @@ Symbol::Symbol(double value) {
 }
 
 Symbol::Symbol(std::string address) {
-    setAddress(address);
+    setPath(address);
 }
 
 double Symbol::getValue() const {
@@ -22,27 +22,30 @@ double Symbol::getValue() const {
 
 void Symbol::setValue(double value)
 {
+    // Set local value
     Symbol::value = value;
-    if (addressSet()) {
-        // TODO (BEN): Update value in server
+    // If bound, send value to simulator
+    if (pathSet()) {
+        string valueStr = to_string(value);
+        client.send_message("set " + path + ' ' + valueStr + "\r\n");
     }
 }
 
-const std::string &Symbol::getAddress() const {
-    return address;
+const std::string &Symbol::getPath() const {
+    return path;
 }
 
-void Symbol::setAddress(const std::string &address)
+void Symbol::setPath(const std::string &address)
 {
-    Symbol::address = address;
+    Symbol::path = address;
     updateValue();
 }
 
-bool Symbol::addressSet() {
-    return !(address == "");
+bool Symbol::pathSet() {
+    return !(path == "");
 }
 
-// TODO (BEN): Figure out getting value from simulation as client and implement
+// TODO (BEN): Figure out getting value from simulation as server and implement
 double Symbol::updateValue() {
     // Update value through bound address
 }
