@@ -7,10 +7,14 @@
 
 
 #include "Expression.h"
+#include "../Interpreter/SymbolMap.h"
+#include "../Interpreter/Symbol.h"
 #include <string>
 
-class Variable : public Expression{
-std::string name;
+
+class Variable : public Expression {
+private:
+    std::string name;
 public:
     Variable(std::string _name);
     double calculate();

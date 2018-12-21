@@ -12,7 +12,8 @@ Server::Server() {
     port = 0;
 }
 
-bool Server::bind_to(int port) {
+bool Server::bind_to(int port)
+{
     this->port = port;
     // Attempt socket creation if it is not already created
     if (sock == -1) {
@@ -43,7 +44,8 @@ bool Server::bind_to(int port) {
     return true;
 }
 
-bool Server::listen_to() {
+bool Server::listen_to()
+{
     // Attempt to listen
     if (listen(sock, 3) < 0) {
         perror("listen");

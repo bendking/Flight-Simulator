@@ -9,6 +9,7 @@
 #include <string>
 
 class Number : public Expression {
+private:
     double num;
 public:
     Number(double d);

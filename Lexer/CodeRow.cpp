@@ -4,7 +4,8 @@
 // Basic methods
 //
 
-void CodeRow::readNextRow(std::istream& str) {
+void CodeRow::readNextRow(std::istream& str)
+{
     // Get entire line
     std::string line;
     std::getline(str, line);
@@ -17,7 +18,8 @@ void CodeRow::readNextRow(std::istream& str) {
     readRow(lineStream);
 }
 
-void CodeRow::readRow(std::stringstream &lineStream) {
+void CodeRow::readRow(std::stringstream &lineStream)
+{
     std::string cell;
 
     // Normalize line spacing
@@ -33,7 +35,8 @@ void CodeRow::readRow(std::stringstream &lineStream) {
 }
 
 // Use: infile >> row (will automatically increment input row)
-std::istream& operator>>(std::istream &str, CodeRow &data) {
+std::istream& operator>>(std::istream &str, CodeRow &data)
+{
     data.readNextRow(str);
     return str;
 }
@@ -51,7 +54,8 @@ bool CodeRow::isEmpty() const {
     return (m_data.size() == 0);
 }
 
-void CodeRow::removeFirstElement() {
+void CodeRow::removeFirstElement()
+{
     std::vector<std::string> new_data(m_data.begin() + 1, m_data.end());
     m_data = new_data;
 }
@@ -60,7 +64,8 @@ void CodeRow::removeLastElement() {
     m_data.pop_back();
 }
 
-void CodeRow::removeFirstLetter() {
+void CodeRow::removeFirstLetter()
+{
     // If the first letter is an element of its own
     if (m_data.front().size() == 1) {
         removeFirstElement();
@@ -70,7 +75,8 @@ void CodeRow::removeFirstLetter() {
     }
 }
 
-void CodeRow::removeLastLetter() {
+void CodeRow::removeLastLetter()
+{
     // If the last letter is an element of its own
     if (m_data.back().size() == 1) {
         removeLastElement();
@@ -85,7 +91,8 @@ char& CodeRow::lastLetter() {
 }
 
 // Index of value in row
-int CodeRow::indexOf(std::string param) const {
+int CodeRow::indexOf(std::string param) const
+{
     for (int i = 0; i < this->size(); i++) {
         if ((*this)[i] == param) {
             return i;
@@ -101,13 +108,21 @@ std::vector<std::string> CodeRow::getArgs() {
     return m_data;
 }
 
-// order the line format
-std::string CodeRow::normalizeLine(std::string line) {
-    std::string normalLine = line;
+std::vector<std::string> CodeRow::getArgsWithoutLast()
+{
+    std::vector<std::string> returnVector = m_data;
+    returnVector.pop_back(); // Remove last argument
+    return returnVector;
 
-    //add spaces before and after '='
+}
+
+// Normalize the line format
+std::string CodeRow::normalizeLine(std::string line)
+{
+    std::string normalLine = line;
+    // Add spaces before and after '='
     int i = 0;
-    for(char& c : line) {
+    for (char& c : line) {
         if (c == '=') {
             normalLine.insert(i ," ");
             normalLine.insert(i+2 ," ");
@@ -115,11 +130,12 @@ std::string CodeRow::normalizeLine(std::string line) {
         }
         i++;
     }
+    // Normalize new line
     line = normalLine;
 
-    //remove spaces in expressions
+    // Remove spaces in expressions
     i = 0;
-    for(char& c : line) {
+    for (char& c : line) {
 
         if (c == '/' || c == '*' || c == '+') {
             while (normalLine[i - 1] == ' ') {
@@ -149,12 +165,14 @@ std::string CodeRow::normalizeLine(std::string line) {
                 i --;
             }
         }
+
         if (c == '(') {
             while (normalLine[i + 1] == ' ') {
                 normalLine.erase(i+1, 1);
                 i --;
             }
         }
+        // Move to next character
         i++;
     }
 
@@ -165,16 +183,9 @@ std::string CodeRow::normalizeLine(std::string line) {
             normalLine.erase(i, 1);
             normalLine.insert(i ," ");
         }
-
+        // Move to next character
         i++;
     }
-
+    // Finally, return normalized line
     return normalLine;
-}
-
-std::vector<std::string> CodeRow::getArgsWithoutLast() {
-    std::vector<std::string> returnVector = m_data;
-    returnVector.pop_back(); // Remove last argument
-    return returnVector;
-
 }

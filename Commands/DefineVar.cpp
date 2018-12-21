@@ -5,11 +5,13 @@
 #include "DefineVar.h"
 
 
-DefineVar::DefineVar(std::string _name, Expression *_exp) {
+DefineVar::DefineVar(std::string _name, Expression *_exp)
+{
     exp = _exp;
     name = _name;
 }
-DefineVar::DefineVar(std::string _name, std::string _address) {
+DefineVar::DefineVar(std::string _name, std::string _address)
+{
     address = _address;
     name = _name;
 }

@@ -33,7 +33,8 @@ bool Interpreter::fileSet() {
 //
 
 // Interpret the entire file set on this object
-void Interpreter::executeFile() {
+void Interpreter::executeFile()
+{
     if (!fileSet()) {
         throw std::logic_error("File not set");
     }
@@ -49,14 +50,16 @@ void Interpreter::executeFile() {
     }
 }
 
-void Interpreter::executeLine(std::string line) {
+void Interpreter::executeLine(std::string line)
+{
     Command* command = interpretLine(line);
     command->execute();
     delete command;
 }
 
 // Interpret next command in file (script style)
-Command* Interpreter::interpretNextRow() {
+Command* Interpreter::interpretNextRow()
+{
     if (fileSet()) {
         // Get lexed line
         CodeRow lexedLine = lexer.nextRow();
@@ -72,7 +75,8 @@ Command* Interpreter::interpretNextRow() {
 }
 
 // Interpret next command in file (script style)
-Command* Interpreter::interpretNextBlockRow(Command* nextCommand, bool* exit) {
+Command* Interpreter::interpretNextBlockRow(Command* nextCommand, bool* exit)
+{
     CodeRow lexedLine = lexer.nextRow(); // Line to be parsed
     // If empty row or '}': null command
     if (lexedLine.isEmpty() || lexedLine[0].front() == '}'){
@@ -100,7 +104,8 @@ Command* Interpreter::interpretLine(std::string line) {
 }
 
 // Interpret a given row/command
-Command* Interpreter::interpret(CodeRow& lexedLine) {
+Command* Interpreter::interpret(CodeRow& lexedLine)
+{
     // TODO (BEN): Lock values manipulated by threads during the run of this function
     // If the row read was empty OR end of block reached, return NULL
     if (lexedLine.isEmpty() || lexedLine[0] == "}") {
@@ -127,7 +132,8 @@ Command* Interpreter::interpret(CodeRow& lexedLine) {
 // Conditions (if & while)
 //
 
-Command* Interpreter::interpretIf(CodeRow& row) {
+Command* Interpreter::interpretIf(CodeRow& row)
+{
     // Make sure to remove '{' if it's on the same line as the If
     if (row.lastLetter() == '{') {
         row.removeLastLetter();
@@ -139,7 +145,8 @@ Command* Interpreter::interpretIf(CodeRow& row) {
     return thisIf;
 }
 
-Command* Interpreter::interpretWhile(CodeRow &row) {
+Command* Interpreter::interpretWhile(CodeRow &row)
+{
     // Make sure to remove '{' if it's on the same line as the While
     if (row.lastLetter() == '{') {
         row.removeLastLetter();
@@ -153,7 +160,8 @@ Command* Interpreter::interpretWhile(CodeRow &row) {
 }
 
 // Add commands inside condition block to its command list
-void Interpreter::setBlock(Condition* condition) {
+void Interpreter::setBlock(Condition* condition)
+{
     bool exit = false;
     Command* nextCommand; // Command to be added
 

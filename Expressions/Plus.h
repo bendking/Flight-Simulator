@@ -8,7 +8,6 @@
 #include "BinaryExpression.h"
 class Plus : public BinaryExpression{
     using BinaryExpression:: BinaryExpression;
-
 public:
     double calculate();
 };

@@ -9,7 +9,8 @@ Condition::Condition(std::vector<std::string> args) {
     setCondition(args);
 }
 
-Condition::~Condition() {
+Condition::~Condition()
+{
     for (Command* command : commands) {
         delete command;
     }

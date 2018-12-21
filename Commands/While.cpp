@@ -4,7 +4,8 @@
 
 #include "While.h"
 
-void While::execute() {
+void While::execute()
+{
     // if condition true, execute all commands in sequence and loop back
     if (conditionTrue()) {
         for (Command* command : commands) {

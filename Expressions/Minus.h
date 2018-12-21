@@ -9,7 +9,6 @@
 
 class Minus : public BinaryExpression {
     using BinaryExpression:: BinaryExpression;
-
 public:
     double calculate();
 };

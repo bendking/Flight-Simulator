@@ -13,15 +13,15 @@ Symbol::Symbol(double value) {
 }
 
 Symbol::Symbol(std::string address) {
-    Symbol::address = address;
-    updateValue();
+    setAddress(address);
 }
 
 double Symbol::getValue() const {
     return value;
 }
 
-void Symbol::setValue(double value) {
+void Symbol::setValue(double value)
+{
     Symbol::value = value;
     if (addressSet()) {
         // TODO (BEN): Update value in server
@@ -32,9 +32,10 @@ const std::string &Symbol::getAddress() const {
     return address;
 }
 
-void Symbol::setAddress(const std::string &address) {
+void Symbol::setAddress(const std::string &address)
+{
     Symbol::address = address;
-    // May be necessary to updateValue(), for now we will let the refresh rate do this
+    updateValue();
 }
 
 bool Symbol::addressSet() {

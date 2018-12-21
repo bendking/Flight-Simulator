@@ -9,7 +9,6 @@
 
 class Division : public BinaryExpression {
     using BinaryExpression:: BinaryExpression;
-
 public:
     double calculate();
 };

@@ -7,7 +7,8 @@
 
 #include "Expression.h"
 
-class UnaryMinus : public Expression{
+class UnaryMinus : public Expression {
+private:
     Expression *exp;
 public:
 

@@ -13,7 +13,8 @@ Parser::Parser() {
 
 }
 // This function takes care of all cases beside If and While, which are taken care of in the interpreter
-Command* Parser::parse(CodeRow& row) {
+Command* Parser::parse(CodeRow& row)
+{
     // For put value commands (X = ...) the
 
     std::vector<std::string> args= row.getArgs();
@@ -63,42 +64,50 @@ Command* Parser::parse(CodeRow& row) {
 }
 
 
+//
+// Helper functions for Shunting Yard
+//
 
-bool isNumberOrColons(char c) {
+bool isNumberOrColons(char c)
+{
     if ((c >= '0' && c <= '9') || c == '.') {
         return true;
     }
     return false;
 }
-bool isOperator(char c) {
+bool isOperator(char c)
+{
     if (c == '/' || c == '*' || c == '+' || c == '-' || c == '@') {
         return true;
     }
     return false;
 }
-bool isOperatorOrOpenCloser(char c) {
+bool isOperatorOrOpenCloser(char c)
+{
     if (c == '(' || isOperator(c)) {
         return true;
     }
     return false;
 }
-bool isEnglishOrUnderscore(char c) {
+bool isEnglishOrUnderscore(char c)
+{
     if  ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_') {
         return true;
     }
     return false;
 }
 
-bool isEnglishOrUnderscoreOrNumber(char c) {
-    if  (isEnglishOrUnderscore(c) || isnumber(c)) {
+bool isEnglishOrUnderscoreOrNumber(char c)
+{
+    if  (isEnglishOrUnderscore(c) || isdigit(c)) {
         return true;
     }
     return false;
 }
 
-//check if operator1 is before operator2
-bool isBefore(char operator1, char operator2) {
-
+// check if operator1 is before operator2
+bool isBefore(char operator1, char operator2)
+{
     if (operator1 == '(') {
         return false;
     }
@@ -114,15 +123,15 @@ bool isBefore(char operator1, char operator2) {
     return false;
 }
 
-// The shunting yard
-Expression* Parser::shuntingYard(std::string s) {
-
+// The Shunting Yard
+Expression* Parser::shuntingYard(std::string s)
+{
     std::queue<std::string> postfix;
     std::stack<char> operators;
 
     for(int i = 0; i < s.length(); i+=1) {
         //in case of number
-        if (isnumber(s[i])) {
+        if (isdigit(s[i])) {
             std::string number = "";
             while (isNumberOrColons(s[i])) {
                 number += s[i];
@@ -145,9 +154,7 @@ Expression* Parser::shuntingYard(std::string s) {
                     } else {
                         break;
                     }
-
                 }
-
             operators.push(s[i]);
         }
 
@@ -156,22 +163,17 @@ Expression* Parser::shuntingYard(std::string s) {
         }
 
         else if (s[i] == ')') {
-
             while (!operators.empty()) {
                 char c = operators.top();
                 operators.pop();
-
 
                 //done
                 if (c == '(') {
                     break;
                 }
-
                 //push to queue
                 postfix.push(std::string(1, c));
-
             }
-
         }
 
         //in case of variable
@@ -184,7 +186,6 @@ Expression* Parser::shuntingYard(std::string s) {
             i--;
             postfix.push(var);
         }
-
     }
     while (!operators.empty()) {
         char op = operators.top();
@@ -201,7 +202,7 @@ Expression* Parser::shuntingYard(std::string s) {
         char first = postfix.front()[0];
         std::string str = postfix.front();
 
-        if (isnumber(first)) {
+        if (isdigit(first)) {
             //number
             st.push(new Number(postfix.front()));
             postfix.pop();
@@ -257,6 +258,5 @@ Expression* Parser::shuntingYard(std::string s) {
     Expression* p = st.top();
     st.pop();
     return p;
-
 }
 

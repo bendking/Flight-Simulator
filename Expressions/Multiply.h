@@ -10,7 +10,6 @@
 
 class Multiply : public BinaryExpression {
     using BinaryExpression:: BinaryExpression;
-
 public:
     double calculate();
 };

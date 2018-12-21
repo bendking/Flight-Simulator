@@ -4,10 +4,10 @@
 
 #include "UnaryMinus.h"
 
-
 UnaryMinus::UnaryMinus(Expression *_exp) {
    exp = _exp;
 }
+
 double UnaryMinus::calculate() {
     return  -1 * exp->calculate();
 }

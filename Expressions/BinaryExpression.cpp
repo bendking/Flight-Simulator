@@ -5,7 +5,8 @@
 #include "BinaryExpression.h"
 
 
-BinaryExpression::BinaryExpression(Expression *a, Expression *b) {
+BinaryExpression::BinaryExpression(Expression *a, Expression *b)
+{
     left = a;
     right = b;
 }

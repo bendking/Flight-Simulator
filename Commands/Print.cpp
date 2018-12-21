@@ -12,10 +12,12 @@ Print::Print(Expression *_a) {
     a = _a;
 }
 
-void Print::execute() {
+// TODO (OFEK)
+void Print::execute()
+{
     if (a != nullptr) {
-        //print expression a
+        // print expression a
     } else {
-        //print str
+        // print str
     }
 }

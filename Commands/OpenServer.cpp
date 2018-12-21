@@ -9,11 +9,13 @@
  * 0 = port
  * 1 = refresh rate
  */
-void OpenServer::execute() {
+void OpenServer::execute()
+{
     // TODO (BEN): Open server
 }
 
-OpenServer::OpenServer(Expression *a, Expression *b) {
+OpenServer::OpenServer(Expression *a, Expression *b)
+{
     port = a;
     refreshRate = b;
 }
