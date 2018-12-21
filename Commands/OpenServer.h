@@ -13,10 +13,9 @@ private:
     Expression *port, *refreshRate;
 public:
     OpenServer(Expression *a, Expression *b);
-
-    void execute();
-
     ~OpenServer();
+    void* openDataServer(void *arguments);
+    void execute();
 };
 
 

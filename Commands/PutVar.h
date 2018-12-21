@@ -7,14 +7,14 @@
 
 #include "Command.h"
 #include "Expression.h"
+#include "SymbolMap.h"
 
 
 class PutVar : public Command {
-
+private:
     Expression *exp = nullptr;
     std::string address;
     std::string name;
-
 public:
     PutVar(std::string _name, std::string _address);
     PutVar(std::string _name, Expression * _exp);

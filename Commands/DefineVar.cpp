@@ -4,7 +4,6 @@
 
 #include "DefineVar.h"
 
-
 DefineVar::DefineVar(std::string _name, Expression *_exp)
 {
     exp = _exp;
@@ -34,6 +33,6 @@ void DefineVar::execute() {
     if (exp != nullptr) { // If given number, set value (pure value variable)
         symbolMap[name].setValue(exp->calculate());
     } else { // If given bind address, set address (local value will update automatically)
-        symbolMap[name].setAddress(address);
+        symbolMap[name].setPath(address);
     }
 }

@@ -5,10 +5,9 @@
 #ifndef FLIGHTSIMULATOR_CONNECT_H
 #define FLIGHTSIMULATOR_CONNECT_H
 
-
 #include "Command.h"
 #include "Expression.h"
-#include <get_client.h>
+#include "SymbolMap.h"
 
 class Connect: public Command {
 std::string ip;
@@ -17,7 +16,6 @@ Expression *port;
 public:
     Connect(std::string _ip, Expression *_port);
     void execute();
-
     ~Connect();
 };
 
