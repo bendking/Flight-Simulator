@@ -1,7 +1,5 @@
 #include <iostream>
-
 #include <unistd.h>
-#include <get_client.h>
 #include "stdio.h"
 #include "Interpreter/Interpreter.h"
 
@@ -22,11 +20,12 @@ void test_client() {
 }
 
 void test_server() {
-
+    set_server(5400);
+    server.listen_to();
+    cout << server.get_buffer() << endl;
 }
 
 int main() {
-    test_client();
-
+    test_server();
     return 0;
 }

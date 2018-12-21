@@ -6,18 +6,18 @@
 static Server server;
 static bool server_set = false;
 
-void set_server()
+void set_server(int port)
 {
     if (!server_set) {
         server = Server();
-        server.bind_to(5400);
+        server.bind_to(port);
         server_set = true;
     }
 }
 
-Server get_server()
+Server get_server(int port)
 {
-    set_server();
+    set_server(port);
     return server;
 }
 

@@ -6,9 +6,9 @@
 #define FLIGHTSIMULATOR_CONDITION_H
 
 #include "Command.h"
+#include "ExpressionLibrary.h"
 #include <vector>
 #include <string>
-#include "ExpressionLibrary.h"
 
 class Condition: public Command {
 protected:

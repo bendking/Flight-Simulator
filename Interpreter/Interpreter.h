@@ -5,7 +5,6 @@
 #ifndef FLIGHTSIMULATOR_INTERPRETER_H
 #define FLIGHTSIMULATOR_INTERPRETER_H
 
-#include "SymbolMap.h"
 #include "../Commands/Command.h"
 #include "../Lexer/Lexer.h"
 #include "../Parser/Parser.h"

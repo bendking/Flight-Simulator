@@ -12,6 +12,7 @@ include_directories(Parser)
 include_directories(Server)
 
 add_executable(Flight_Simulator
+        main.cpp
         Client/Client.cpp
         Client/Client.h
         Commands/Command.h
@@ -65,4 +66,5 @@ add_executable(Flight_Simulator
         Parser/Parser.h
         Server/Server.cpp
         Server/Server.h
-        main.cpp Client/get_client.h Server/get_server.h)
+        Client/get_client.h
+        Server/get_server.h)

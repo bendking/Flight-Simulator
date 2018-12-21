@@ -7,6 +7,7 @@
 
 #include "Command.h"
 #include "Expression.h"
+#include "SymbolMap.h"
 
 class DefineVar: public Command {
 
