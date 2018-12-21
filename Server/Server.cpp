@@ -64,3 +64,11 @@ bool Server::listen_to()
     read_value = read(new_socket, buffer, 1024);
     // TODO (BEN): Do something with buffer
 }
+
+char* Server::get_buffer() {
+    return buffer;
+}
+
+int Server::get_read_value() {
+    return read_value;
+}

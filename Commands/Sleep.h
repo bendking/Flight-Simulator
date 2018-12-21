@@ -13,7 +13,6 @@ class Sleep : public Command {
     Expression *a;
 public:
     Sleep(Expression *_a);
-
     void execute();
 };
 

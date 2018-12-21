@@ -5,13 +5,13 @@
 #ifndef FLIGHTSIMULATOR_SERVER_H
 #define FLIGHTSIMULATOR_SERVER_H
 
-#include<iostream>	// cout
-#include<stdio.h>	//printf
-#include<string.h>	//strlen
-#include<string>	//string
-#include<sys/socket.h>	//socket
-#include<arpa/inet.h>	//inet_addr
-#include<netdb.h>	//hostent
+#include <iostream>	// cout
+#include <stdio.h>	// printf
+#include <string.h>	// strlen
+#include <string>	// string
+#include <sys/socket.h>	// socket
+#include <arpa/inet.h>	// inet_addr
+#include <netdb.h>	// hostent
 
 
 
@@ -28,6 +28,8 @@ public:
     Server();
     bool bind_to(int port);
     bool listen_to();
+    char* get_buffer();
+    int get_read_value();
 };
 
 

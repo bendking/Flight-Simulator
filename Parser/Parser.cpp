@@ -2,12 +2,7 @@
 // Created by ben on 12/15/18.
 //
 
-#include <cstring>
 #include "Parser.h"
-#include <queue>
-#include <stack>
-#include <iostream>
-#include "CommandLibrary.h"
 
 Parser::Parser() {
 
@@ -46,9 +41,9 @@ Command* Parser::parse(CodeRow& row)
         }
     }
     else if (commandName == "sleep") {
-        return new Sleep(shuntingYard(args[1]));
+        return new Sleep(shuntingYard(args[1])); // TODO (OFEK): undefined reference
     }
-    else{
+    else {
         //it's a variable name by PutVar
         if (args[2] == "bind") {
             //need to bind
@@ -59,8 +54,6 @@ Command* Parser::parse(CodeRow& row)
             return new PutVar(args[0], exp);
         }
     }
-
-
 }
 
 
