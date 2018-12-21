@@ -8,15 +8,16 @@
 #include "Command.h"
 #include <vector>
 #include <string>
+#include "ExpressionLibrary.h"
 
 class Condition: public Command {
 protected:
     std::vector<Command*> commands;
-    std::vector<std::string> condition;
+    Expression *leftExp, *rightExp;
+    std::string condition;
 public:
-    Condition(std::vector<std::string> args);
+    Condition(Expression *a, std::string b, Expression *c);
     ~Condition();
-    void setCondition(std::vector<std::string> args);
     void addCommand(Command* command);
 
     bool conditionTrue();

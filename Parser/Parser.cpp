@@ -56,6 +56,29 @@ Command* Parser::parse(CodeRow& row)
     }
 }
 
+// Parse consition command
+Condition* Parser::parseCondition(CodeRow& row)
+{
+    // Make sure to remove '{' if it's on the same line as the If
+    if (row.lastLetter() == '{') {
+        row.removeLastLetter();
+    }
+
+    Expression *first = shuntingYard(row[1]);
+    Expression *second = shuntingYard(row[3]);
+
+    // If the command is a condition, interpret as a condition (parse next lines until '}')
+    if (row[0] == "if") {
+        return new If(first, row[2], second);
+    }
+
+    if (row[0] == "while") {
+        return new While(first, row[2], second);
+    }
+
+}
+
+
 
 //
 // Helper functions for Shunting Yard

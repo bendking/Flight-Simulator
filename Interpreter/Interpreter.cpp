@@ -72,6 +72,7 @@ Command* Interpreter::interpretNextRow()
         // Else, interpret
         return interpret(lexedLine);
     }
+    return nullptr;
 }
 
 // Interpret next command in file (script style)
@@ -96,6 +97,8 @@ Command* Interpreter::interpretNextBlockRow(Command* nextCommand, bool* exit)
         // Finally, interpret line normally
         nextCommand = interpret(lexedLine);
     }
+
+    return nextCommand;
 }
 
 // Interpret a specific line given (command line style)
@@ -134,12 +137,9 @@ Command* Interpreter::interpret(CodeRow& lexedLine)
 
 Command* Interpreter::interpretIf(CodeRow& row)
 {
-    // Make sure to remove '{' if it's on the same line as the If
-    if (row.lastLetter() == '{') {
-        row.removeLastLetter();
-    }
+
     // Initialize If
-    If* thisIf = new If(row.getArgs());
+    Condition* thisIf = parser.parseCondition(row);
     // Set commands inside block
     setBlock(thisIf);
     return thisIf;
@@ -147,12 +147,9 @@ Command* Interpreter::interpretIf(CodeRow& row)
 
 Command* Interpreter::interpretWhile(CodeRow &row)
 {
-    // Make sure to remove '{' if it's on the same line as the While
-    if (row.lastLetter() == '{') {
-        row.removeLastLetter();
-    }
+
     // Initialize While
-    While* thisWhile = new While(row.getArgs());
+    Condition* thisWhile = parser.parseCondition(row);
 
     // Set commands inside block
     setBlock(thisWhile);

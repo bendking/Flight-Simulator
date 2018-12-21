@@ -11,7 +11,6 @@ Connect::Connect(std::string _ip, Expression *_port) {
 }
 
 Connect::~Connect() {
-    delete ip;
     delete port;
 }
 
