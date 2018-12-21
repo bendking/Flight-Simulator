@@ -3,6 +3,27 @@
 //
 
 #include "OpenServer.h"
+#include <pthread.h>
+
+struct arg_struct{
+    double port;
+    double refreshRate;
+};
+
+
+void *openDataServer(void *arguments)
+{
+    // Open data server
+    struct arg_struct *args = (struct arg_struct *)arguments;
+    int port = (int) args->port;
+    double refreshRate = args->refreshRate;
+    free(args);
+
+    // TODO (BEN): Open server
+
+
+    return NULL;
+}
 
 /*
  * Expected arguments:
@@ -11,8 +32,17 @@
  */
 void OpenServer::execute()
 {
-    // TODO (BEN): Open server
+
+    struct arg_struct *args = (struct arg_struct*) malloc(sizeof(struct arg_struct));
+    args->port = port->calculate();
+    args->refreshRate = refreshRate->calculate();
+
+    // Create new thread
+    pthread_t th;
+    pthread_create(&th, NULL, openDataServer, (void *)args);
+
 }
+
 
 OpenServer::OpenServer(Expression *a, Expression *b)
 {
