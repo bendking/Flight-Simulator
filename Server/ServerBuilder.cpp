@@ -4,6 +4,9 @@
 
 #include "ServerBuilder.h"
 
+ServerBuilder::ServerBuilder() {
+    
+}
 void ServerBuilder::set_server(int port) {
     if (!server_set) {
         server = Server();

@@ -4,6 +4,10 @@
 
 #include "ClientBuilder.h"
 
+ClientBuilder::ClientBuilder() {
+
+}
+
 void ClientBuilder::set_client(string ip, int port)
 {
     if (!client_set) {
