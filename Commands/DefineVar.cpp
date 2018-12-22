@@ -6,6 +6,8 @@
 
 DefineVar::DefineVar(std::string _name, Expression *_exp)
 {
+    // TODO remove "" from string
+
     exp = _exp;
     name = _name;
 }

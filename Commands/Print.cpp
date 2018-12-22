@@ -17,6 +17,7 @@ void Print::execute()
 {
     if (a != nullptr) {
         // print expression a
+
     } else {
         // print str
     }

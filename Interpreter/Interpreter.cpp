@@ -46,7 +46,9 @@ void Interpreter::executeFile()
 //        command->execute();
 //        delete command;
         // Get next command
+        command -> execute();
         command = interpretNextRow();
+
     }
 }
 

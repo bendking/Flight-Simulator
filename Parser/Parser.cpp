@@ -16,10 +16,10 @@ Command* Parser::parse(CodeRow& row)
     std::string commandName = args[0];
 
     if (commandName == "openDataServer") {
-        new OpenServer(shuntingYard(args[1]), shuntingYard(args[2]));
+        return new OpenServer(shuntingYard(args[1]), shuntingYard(args[2]));
     }
     else if (commandName == "connect") {
-        new Connect(args[1], shuntingYard(args[2]));
+        return new Connect(args[1], shuntingYard(args[2]));
     }
     else if (commandName == "var") {
         if (args[3] == "bind") {

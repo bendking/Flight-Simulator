@@ -28,7 +28,7 @@ void CodeRow::readRow(std::stringstream &lineStream)
     // Clear any previous data and get all elements on this row
     m_data.clear();
     while(std::getline(lineStream, cell, ' ')) {
-        if (cell != " ") {
+        if (cell != " " && cell != "") {
             m_data.push_back(cell);
         }
     }
@@ -117,8 +117,10 @@ std::vector<std::string> CodeRow::getArgsWithoutLast()
 }
 
 // Normalize the line format
+// TODO add spaces near < > == ||
 std::string CodeRow::normalizeLine(std::string line)
 {
+
     std::string normalLine = line;
     // Add spaces before and after '='
     int i = 0;
