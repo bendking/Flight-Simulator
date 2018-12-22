@@ -118,13 +118,83 @@ std::vector<std::string> CodeRow::getArgsWithoutLast()
 
 // Normalize the line format
 // TODO add spaces near < > == ||
-std::string CodeRow::normalizeLine(std::string line)
-{
+std::string CodeRow::normalizeLine(std::string line) {
 
     std::string normalLine = line;
 
+
+    for (int i = 0; i < normalLine.size(); i++) {
+
+        if (normalLine[i] == '\"') {
+            i++;
+            while (normalLine[i] != '\"') {i++;}
+        }
+
+        else if (normalLine[i] == '=' || normalLine[i] == '<' || normalLine[i] == '>') {
+            if (normalLine[i - 1] == '!' || normalLine[i - 1] == '=' || normalLine[i - 1] == '<' ||
+                normalLine[i - 1] == '>') {
+                normalLine.insert(i - 1, " ");
+            } else {
+                normalLine.insert(i, " ");
+            }
+            i++;
+
+            if (normalLine[i + 1] == '=') {
+                normalLine.insert(i + 2, " ");
+            } else {
+                normalLine.insert(i + 1, " ");
+            }
+            i++;
+        }
+
+
+        // Remove spaces before and after
+        else if (normalLine[i] == '/' || normalLine[i] == '*' || normalLine[i] == '+' || normalLine[i] == '-') {
+            // while there are no spaces
+            while (normalLine[i - 1] == ' ' && normalLine[i - 2] != '=') {
+                normalLine.erase(i - 1, 1);
+                i--;
+            }
+            while (normalLine[i + 1] == ' ') {
+                normalLine.erase(i + 1, 1);
+                i--;
+            }
+
+        }
+            // Check for close closer
+        else if (normalLine[i] == ')') {
+            while (normalLine[i - 1] == ' ') {
+                normalLine.erase(i - 1, 1);
+                i--;
+            }
+        }
+            // Check for open closer
+        else if (normalLine[i] == '(') {
+            while (normalLine[i + 1] == ' ') {
+                normalLine.erase(i + 1, 1);
+                i--;
+            }
+        }
+
+        else if (normalLine[i] == ',') {
+            normalLine.erase(i, 1);
+            normalLine.insert(i, " ");
+        }
+    }
+
+
+
+
+
+
+
+
+    /*
+
+
     // Add spaces before and after these tokens: =, ==, <, >, <=, >=
     for (int i = 0; i < normalLine.size(); i++) {
+
         if (normalLine[i] == '=' || normalLine[i] == '<' || normalLine[i] == '>' ) {
             if (normalLine[i-1] == '!' || normalLine[i-1] == '=' || normalLine[i-1] == '<' || normalLine[i-1] == '>') {
                 normalLine.insert(i-1, " ");
@@ -178,6 +248,7 @@ std::string CodeRow::normalizeLine(std::string line)
         }
     }
 
+
     // Replace every comma with space
     int i = 0;
     for(char& c : normalLine) {
@@ -188,6 +259,8 @@ std::string CodeRow::normalizeLine(std::string line)
         // Move to next character
         i++;
     }
+
+     */
     // Finally, return normalized line
     return normalLine;
 }

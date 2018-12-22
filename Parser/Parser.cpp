@@ -39,7 +39,7 @@ Command* Parser::parse(CodeRow& row)
     else if (commandName == "print") {
         if (args[1][0] == '\"') {
             //need to print all of it
-            return new Print(args[1]);
+            return new Print(args);
         } else {
             //need to print a varibale
             return new Print(shuntingYard(args[1]));
