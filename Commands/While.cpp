@@ -7,12 +7,9 @@
 void While::execute()
 {
     // if condition true, execute all commands in sequence and loop back
-    if (conditionTrue()) {
+    while (conditionTrue()) {
         for (Command* command : commands) {
             command->execute();
         }
-
-        // Loop back
-        execute();
     }
 }
