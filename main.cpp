@@ -20,11 +20,19 @@ void test_client() {
     client.send_message("set controls/flight/rudder -1\r\n");
 }
 
-void test_server() {
+void old_test_server() {
     ServerBuilder builder;
-    builder.set_server(5400);
-    server.listen_to();
-    cout << server.get_buffer() << endl;
+    Server server = builder.get_server(5400);
+    int new_socket = server.listen_to();
+    while (1) {
+        server.read_from(new_socket);
+        std::cout << server.get_buffer();
+    }
+}
+
+void test_server() {
+    ServerRunner server;
+    server.run(5400, 10);
 }
 
 int main() {

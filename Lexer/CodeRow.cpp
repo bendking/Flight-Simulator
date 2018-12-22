@@ -1,8 +1,14 @@
+#include <iostream>
 #include "CodeRow.h"
 
 //
 // Basic methods
 //
+
+CodeRow::CodeRow(char _delimiter, bool _normalize) {
+    delimiter = _delimiter; // Default = ' '
+    normalize = _normalize; // Default = true
+}
 
 void CodeRow::readNextRow(std::istream& str)
 {
@@ -11,7 +17,9 @@ void CodeRow::readNextRow(std::istream& str)
     std::getline(str, line);
 
     //format the line
-    line = normalizeLine(line);
+    if (normalize) {
+        line = normalizeLine(line);
+    }
 
     // Put line in stringstream
     std::stringstream lineStream(line);
@@ -22,12 +30,9 @@ void CodeRow::readRow(std::stringstream &lineStream)
 {
     std::string cell;
 
-    // Normalize line spacing
-    // normalizeLine(lineStream);
-
     // Clear any previous data and get all elements on this row
     m_data.clear();
-    while(std::getline(lineStream, cell, ' ')) {
+    while(std::getline(lineStream, cell, delimiter)) {
         if (cell != " " && cell != "") {
             m_data.push_back(cell);
         }
@@ -117,12 +122,11 @@ std::vector<std::string> CodeRow::getArgsWithoutLast()
 }
 
 // Normalize the line format
+
 // TODO add spaces near < > == ||
-std::string CodeRow::normalizeLine(std::string line) {
-
+std::string CodeRow::normalizeLine(std::string line)
+{
     std::string normalLine = line;
-
-
     for (int i = 0; i < normalLine.size(); i++) {
 
         if (normalLine[i] == '\"') {
@@ -263,4 +267,17 @@ std::string CodeRow::normalizeLine(std::string line) {
      */
     // Finally, return normalized line
     return normalLine;
+}
+
+//
+// Debug methods
+//
+
+void CodeRow::print() const {
+    std::string to_print;
+    for (int i = 0; i < size(); i++) {
+        to_print += m_data[i] + ", ";
+    }
+    // Drop line
+    std::cout << to_print << std::endl;
 }

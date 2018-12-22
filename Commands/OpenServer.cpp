@@ -3,7 +3,6 @@
 //
 
 #include "OpenServer.h"
-#include <pthread.h>
 
 struct arg_struct {
     double port;
@@ -26,13 +25,12 @@ void* openDataServer(void *arguments)
     // Open data server
     struct arg_struct* args = (struct arg_struct *)arguments;
     int port = (int) args->port;
-    double refreshRate = args->refreshRate;
+    double refresh_rate = args->refreshRate;
     free(args);
 
-    // TODO (BEN): Open server
-    ServerBuilder builder;
-    builder.set_server(port);
-    return NULL;
+    // Create server & run it
+    ServerRunner server;
+    server.run(port, refresh_rate);
 }
 
 /*

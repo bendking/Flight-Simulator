@@ -7,7 +7,10 @@
 
 #include "Command.h"
 #include <pthread.h>
+#include "../Server/ServerRunner.h"
 #include "../Server/ServerBuilder.h"
+
+
 
 class OpenServer: public Command {
 private:

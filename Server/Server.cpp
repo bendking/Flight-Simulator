@@ -32,7 +32,7 @@ bool Server::bind_to(int port)
         return false;
     }
 
-    server.sin_addr.s_addr = inet_addr(address.c_str());
+    server.sin_addr.s_addr = INADDR_ANY;
     server.sin_family = AF_INET;
     server.sin_port = htons(port);
 
@@ -44,7 +44,7 @@ bool Server::bind_to(int port)
     return true;
 }
 
-bool Server::listen_to()
+int Server::listen_to()
 {
     // Attempt to listen
     if (listen(sock, 3) < 0) {
@@ -59,10 +59,12 @@ bool Server::listen_to()
         perror("accept");
         return false;
     }
+    // Return socket for input
+    return new_socket;
+}
 
-    // Read from client
+void Server::read_from(int new_socket) {
     read_value = read(new_socket, buffer, 1024);
-    // TODO (BEN): Do something with buffer
 }
 
 char* Server::get_buffer() {
