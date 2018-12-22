@@ -23,7 +23,7 @@ OpenServer::~OpenServer() {
 void* openDataServer(void *arguments)
 {
     // Open data server
-    struct arg_struct* args = (struct arg_struct *)arguments;
+    arg_struct* args = (struct arg_struct*) arguments;
     int port = (int) args->port;
     double refresh_rate = args->refreshRate;
     free(args);
@@ -40,11 +40,12 @@ void* openDataServer(void *arguments)
  */
 void OpenServer::execute()
 {
-    struct arg_struct *args = (struct arg_struct*) malloc(sizeof(struct arg_struct));
+    // Make struct to hold arguements for thread
+    struct arg_struct* args = (struct arg_struct*) malloc(sizeof(struct arg_struct));
     args->port = port->calculate();
     args->refreshRate = refreshRate->calculate();
 
     // Create new thread
     pthread_t th;
-    pthread_create(&th, NULL, openDataServer, (void *)args);
+    pthread_create(&th, NULL, openDataServer, args);
 }
