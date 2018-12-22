@@ -122,35 +122,36 @@ std::string CodeRow::normalizeLine(std::string line)
 {
 
     std::string normalLine = line;
-    // Add spaces before and after '='
-    int i = 0;
-    for (char& c : line) {
-        if (c == '=') {
-            normalLine.insert(i ," ");
-            normalLine.insert(i+2 ," ");
-            i+=2;
+
+    // Add spaces before and after these tokens: =, ==, <, >, <=, >=
+    for (int i = 0; i < normalLine.size(); i++) {
+        if (normalLine[i] == '=' || normalLine[i] == '<' || normalLine[i] == '>' ) {
+            if (normalLine[i-1] == '!' || normalLine[i-1] == '=' || normalLine[i-1] == '<' || normalLine[i-1] == '>') {
+                normalLine.insert(i-1, " ");
+            } else {
+                normalLine.insert(i, " ");
+            }
+            i++;
+
+            if (normalLine[i+1] == '=') {
+                normalLine.insert(i+2 ," ");
+            } else {
+                normalLine.insert(i+1 ," ");
+            }
+            i++;
         }
-        i++;
     }
+
+
     // Normalize new line
     line = normalLine;
 
+
     // Remove spaces in expressions
-    i = 0;
-    for (char& c : line) {
-
-        if (c == '/' || c == '*' || c == '+') {
-            while (normalLine[i - 1] == ' ') {
-                normalLine.erase(i-1, 1);
-                i --;
-            }
-            while (normalLine[i + 1] == ' ') {
-                normalLine.erase(i+1, 1);
-                i --;
-            }
-        }
-
-        else if (c == '-') {
+    for (int i = 0; i < normalLine.size(); i++) {
+        // Remove spaces before and after
+        if (normalLine[i] == '/' || normalLine[i] == '*' || normalLine[i] == '+' || normalLine[i] == '-') {
+            // while there are no spaces
             while (normalLine[i - 1] == ' ' && normalLine[i - 2] != '=') {
                 normalLine.erase(i-1, 1);
                 i --;
@@ -159,27 +160,26 @@ std::string CodeRow::normalizeLine(std::string line)
                 normalLine.erase(i+1, 1);
                 i --;
             }
-        }
 
-        else if (c == ')') {
+        }
+        // Check for close closer
+        else if (normalLine[i] == ')') {
             while (normalLine[i - 1] == ' ') {
                 normalLine.erase(i-1, 1);
                 i --;
             }
         }
-
-        else if (c == '(') {
+        // Check for open closer
+        else if (normalLine[i] == '(') {
             while (normalLine[i + 1] == ' ') {
                 normalLine.erase(i+1, 1);
                 i --;
             }
         }
-        // Move to next character
-        i++;
     }
 
     // Replace every comma with space
-    i = 0;
+    int i = 0;
     for(char& c : normalLine) {
         if(c == ',') {
             normalLine.erase(i, 1);

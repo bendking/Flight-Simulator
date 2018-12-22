@@ -57,7 +57,7 @@ Command* Parser::parse(CodeRow& row)
             //remove ""
             address.erase(0, 1);
             address.erase(address.size() - 1, 1);
-            
+
             return new PutVar(args[0], address);
         } else {
             //number
