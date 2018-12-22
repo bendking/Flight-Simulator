@@ -39,15 +39,20 @@ void Interpreter::executeFile()
         throw std::logic_error("File not set");
     }
 
+    vector<Command*> usedCommands;
     Command* command = interpretNextRow();
     // Loop will stop once an empty row has been reached
     while (command != nullptr) {
         // Execute then deallocate command
-//        command->execute();
-//        delete command;
+        command->execute();
+        usedCommands.push_back(command);
         // Get next command
         command -> execute();
         command = interpretNextRow();
+    }
+    // Delete all used commands
+    for (Command* command : usedCommands) {
+        delete command;
     }
 }
 
