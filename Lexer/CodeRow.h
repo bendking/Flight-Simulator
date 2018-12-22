@@ -15,7 +15,10 @@ class CodeRow
 {
 private:
     std::vector<std::string> m_data;
+    char delimiter;
+    bool normalize;
 public:
+    CodeRow(char _delimiter = ' ', bool _normalize = true);
     void readNextRow(std::istream& str);
     void readRow(std::stringstream &lineStream);
     int indexOf(std::string param) const;
@@ -30,6 +33,7 @@ public:
 
     std::size_t size() const;
     bool isEmpty() const;
+    void print() const;
 
     std::string normalizeLine(std::string line);
     std::string const& operator[](std::size_t index) const {
