@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(Flight_Simulator)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS -pthread)
 
 include_directories(Client)
 include_directories(Commands)
@@ -64,7 +65,9 @@ add_executable(Flight_Simulator
         Parser/Parser.h
         Client/Client.cpp
         Client/Client.h
+        Client/ClientBuilder.cpp
         Client/ClientBuilder.h
         Server/Server.cpp
         Server/Server.h
-        Server/ServerBuilder.h Server/ServerBuilder.cpp Client/ClientBuilder.cpp Client/ClientBuilder.cpp Client/ClientBuilder.h Server/ServerBuilder.cpp Server/ServerBuilder.h)
+        Server/ServerBuilder.cpp
+        Server/ServerBuilder.h)

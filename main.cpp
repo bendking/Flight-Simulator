@@ -24,7 +24,7 @@ void test_server() {
     ServerBuilder builder;
     builder.set_server(5400);
     server.listen_to();
-    //cout << server.get_buffer() << endl;
+    cout << server.get_buffer() << endl;
 }
 
 int main() {
