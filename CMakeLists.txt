@@ -13,8 +13,6 @@ include_directories(Server)
 
 add_executable(Flight_Simulator
         main.cpp
-        Client/Client.cpp
-        Client/Client.h
         Commands/Command.h
         Commands/Condition.cpp
         Commands/Condition.h
@@ -64,7 +62,9 @@ add_executable(Flight_Simulator
         Lexer/Lexer.h
         Parser/Parser.cpp
         Parser/Parser.h
+        Client/Client.cpp
+        Client/Client.h
+        Client/ClientBuilder.h
         Server/Server.cpp
         Server/Server.h
-        Client/get_client.h
-        Server/get_server.h Client/get_server.h Client/Server.cpp Client/Server.h)
+        Server/ServerBuilder.h Server/ServerBuilder.cpp Client/ClientBuilder.cpp Client/ClientBuilder.cpp Client/ClientBuilder.h Server/ServerBuilder.cpp Server/ServerBuilder.h)

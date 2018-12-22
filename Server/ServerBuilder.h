@@ -1,5 +1,5 @@
 //
-// Created by Yaron Israel on 2018-12-21.
+// Created by ben on 12/22/18.
 //
 
 #ifndef FLIGHT_SIMULATOR_GET_SERVER_H
@@ -10,18 +10,12 @@
 static Server server;
 static bool server_set = false;
 
-static void set_server(int port)
-{
-
-
-}
-
-
-static void get_server(string ip, int port)
-{
-
-}
-
+class ServerBuilder {
+public:
+    ServerBuilder();
+    void set_server(int port);
+    Server get_server(int port);
+};
 
 
 #endif //FLIGHT_SIMULATOR_GET_SERVER_H

@@ -19,7 +19,8 @@ Connect::~Connect() {
  * 1 = port
  */
 void Connect::execute() {
-    set_client(ip, port->calculate());
+    ClientBuilder builder;
+    builder.set_client(ip, port->calculate());
 }
 
 

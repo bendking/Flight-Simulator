@@ -6,7 +6,8 @@
 #define FLIGHTSIMULATOR_OPENSERVER_H
 
 #include "Command.h"
-#include "Expression.h"
+#include <pthread.h>
+#include "../Server/ServerBuilder.h"
 
 class OpenServer: public Command {
 private:

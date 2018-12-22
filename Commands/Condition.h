@@ -6,7 +6,7 @@
 #define FLIGHTSIMULATOR_CONDITION_H
 
 #include "Command.h"
-#include "ExpressionLibrary.h"
+#include "../Expressions/ExpressionLibrary.h"
 #include <vector>
 #include <string>
 
