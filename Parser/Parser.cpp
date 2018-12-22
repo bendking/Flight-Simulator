@@ -24,7 +24,12 @@ Command* Parser::parse(CodeRow& row)
     else if (commandName == "var") {
         if (args[3] == "bind") {
             //need to bind
-            return new DefineVar(args[1], args[4]);
+            std::string address = args[4];
+            //remove ""
+            address.erase(0, 1);
+            address.erase(address.size() - 1, 1);
+
+            return new DefineVar(args[1], address);
         } else {
             //number
             Expression *exp = shuntingYard(args[3]);
@@ -34,7 +39,7 @@ Command* Parser::parse(CodeRow& row)
     else if (commandName == "print") {
         if (args[1][0] == '\"') {
             //need to print all of it
-            return new Print(args[1]);
+            return new Print(args);
         } else {
             //need to print a varibale
             return new Print(shuntingYard(args[1]));
@@ -47,7 +52,13 @@ Command* Parser::parse(CodeRow& row)
         //it's a variable name by PutVar
         if (args[2] == "bind") {
             //need to bind
-            return new PutVar(args[0], args[3]);
+            std::string address = args[3];
+
+            //remove ""
+            address.erase(0, 1);
+            address.erase(address.size() - 1, 1);
+
+            return new PutVar(args[0], address);
         } else {
             //number
             Expression *exp = shuntingYard(args[2]);
