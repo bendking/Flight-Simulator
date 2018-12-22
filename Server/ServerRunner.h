@@ -18,6 +18,8 @@
 
 class ServerRunner {
 private:
+    Server server;
+    int port;
     std::unordered_map<std::string, float> valueMap;
     std::string valueNames[VALUES] = {"/instrumentation/airspeed-indicator/indicated-speed-kt",
                                       "/instrumentation/altimeter/indicated-altitude-ft",
@@ -43,9 +45,10 @@ private:
                                       "/controls/engines/engine/throttle",
                                       "/engines/engine/rpm"};
 public:
-    ServerRunner();
+    ServerRunner(int port, int refresh_rate);
     void initializeValues();
-    void* run(int port = 5400, int refresh = 10);
+    int listen(); // Returns socket
+    void* run(int new_socket, int port = 5400, int refresh = 10);
 };
 
 

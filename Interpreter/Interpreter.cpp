@@ -47,7 +47,6 @@ void Interpreter::executeFile()
         command->execute();
         usedCommands.push_back(command);
         // Get next command
-        command -> execute();
         command = interpretNextRow();
     }
     // Delete all used commands

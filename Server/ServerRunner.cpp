@@ -7,11 +7,15 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wmissing-noreturn"
 
-ServerRunner::ServerRunner() {
+ServerRunner::ServerRunner(int port, int refresh_rate) {
+    ServerBuilder builder;
+    this->server = builder.get_server(port);
+    this->port = port;
     initializeValues();
 }
 
-void ServerRunner::initializeValues () {
+void ServerRunner::initializeValues ()
+{
     valueMap.emplace(std::make_pair("/instrumentation/airspeed-indicator/indicated-speed-kt", 0));
     valueMap.emplace(std::make_pair("/instrumentation/altimeter/indicated-altitude-ft", 0));
     valueMap.emplace(std::make_pair("/instrumentation/altimeter/pressure-alt-ft", 0));
@@ -37,11 +41,14 @@ void ServerRunner::initializeValues () {
     valueMap.emplace(std::make_pair("/engines/engine/rpm", 0));
 }
 
-void* ServerRunner::run(int port, int refresh_rate) {
-    ServerBuilder builder;
-    Server server = builder.get_server(port);
-    int new_socket = server.listen_to();
 
+int ServerRunner::listen() {
+    int new_socket = server.listen_to();
+    return new_socket;
+}
+
+void* ServerRunner::run(int new_socket, int port, int refresh_rate)
+{
     // Prepare variables for getting data from server
     std::stringstream stream;
     CodeRow input(',', false);

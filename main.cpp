@@ -21,8 +21,9 @@ void test_client() {
 }
 
 void test_server() {
-    ServerRunner server;
-    server.run(5400, 10);
+    ServerRunner server(5400, 10);
+    int socket = server.listen();
+    server.run(socket);
 }
 
 int main() {
