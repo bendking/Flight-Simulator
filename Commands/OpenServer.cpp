@@ -4,8 +4,6 @@
 
 #include "OpenServer.h"
 #include <pthread.h>
-#include "../Server/get_server.h"
-
 
 struct arg_struct {
     double port;
@@ -32,7 +30,8 @@ void* openDataServer(void *arguments)
     free(args);
 
     // TODO (BEN): Open server
-    set_server(port);
+    ServerBuilder builder;
+    builder.set_server(port);
     return NULL;
 }
 
@@ -50,5 +49,4 @@ void OpenServer::execute()
     // Create new thread
     pthread_t th;
     pthread_create(&th, NULL, openDataServer, (void *)args);
-
 }

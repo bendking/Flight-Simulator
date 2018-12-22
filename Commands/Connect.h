@@ -6,10 +6,8 @@
 #define FLIGHTSIMULATOR_CONNECT_H
 
 #include "Command.h"
-#include "Expression.h"
-#include "SymbolMap.h"
-#include "../Client/get_client.h"
-#include "../Client/get_server.h"
+#include "../Interpreter/SymbolMap.h"
+#include "../Client/ClientBuilder.h"
 
 
 class Connect: public Command {

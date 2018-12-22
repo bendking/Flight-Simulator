@@ -3,10 +3,6 @@
 #include "stdio.h"
 #include "Interpreter/Interpreter.h"
 
-#include "../Client/get_client.h"
-#include "../Client/get_server.h"
-
-
 void printCurrentDirectory() {
     char buff[FILENAME_MAX];
     getcwd( buff, FILENAME_MAX );
@@ -19,13 +15,15 @@ void test_interpreter() {
 }
 
 void test_client() {
-    set_client("127.0.0.1", 5402);
+    ClientBuilder builder;
+    builder.set_client("127.0.0.1", 5402);
     client.send_message("set controls/flight/rudder -1\r\n");
 }
 
 void test_server() {
-    //set_server(5400);
-    //server.listen_to();
+    ServerBuilder builder;
+    builder.set_server(5400);
+    server.listen_to();
     //cout << server.get_buffer() << endl;
 }
 

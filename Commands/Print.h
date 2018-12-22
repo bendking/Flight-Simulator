@@ -6,7 +6,6 @@
 #define FLIGHT_SIMULATOR_PRINT_H
 
 #include "Command.h"
-#include "Expression.h"
 
 class Print : public Command {
     Expression *a = nullptr;

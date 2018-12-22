@@ -6,8 +6,7 @@
 #define FLIGHTSIMULATOR_PUTVAR_H
 
 #include "Command.h"
-#include "Expression.h"
-#include "SymbolMap.h"
+#include "../Interpreter/SymbolMap.h"
 
 
 class PutVar : public Command {
