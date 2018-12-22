@@ -15,7 +15,7 @@
  */
 class Symbol {
 private:
-    double value;
+    double value = 0;
     std::string path = "";
 public:
     explicit Symbol();

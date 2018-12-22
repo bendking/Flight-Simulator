@@ -3,7 +3,7 @@
 //
 
 #include "Variable.h"
-
+#include <iostream>
 
 Variable::Variable(std::string _name) {
     name = _name;

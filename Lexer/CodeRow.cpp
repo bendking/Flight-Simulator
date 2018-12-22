@@ -150,7 +150,7 @@ std::string CodeRow::normalizeLine(std::string line)
             }
         }
 
-        if (c == '-') {
+        else if (c == '-') {
             while (normalLine[i - 1] == ' ' && normalLine[i - 2] != '=') {
                 normalLine.erase(i-1, 1);
                 i --;
@@ -161,14 +161,14 @@ std::string CodeRow::normalizeLine(std::string line)
             }
         }
 
-        if (c == ')') {
+        else if (c == ')') {
             while (normalLine[i - 1] == ' ') {
                 normalLine.erase(i-1, 1);
                 i --;
             }
         }
 
-        if (c == '(') {
+        else if (c == '(') {
             while (normalLine[i + 1] == ' ') {
                 normalLine.erase(i+1, 1);
                 i --;

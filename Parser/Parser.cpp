@@ -41,7 +41,7 @@ Command* Parser::parse(CodeRow& row)
         }
     }
     else if (commandName == "sleep") {
-//        return new Sleep(shuntingYard(args[1])); // TODO (OFEK): undefined reference
+       return new Sleep(shuntingYard(args[1])); // TODO (OFEK): undefined reference
     }
     else {
         //it's a variable name by PutVar
@@ -140,12 +140,11 @@ bool isBefore(char operator1, char operator2)
 }
 
 // The Shunting Yard
-Expression* Parser::shuntingYard(std::string s)
-{
+Expression* Parser::shuntingYard(std::string s) {
     std::queue<std::string> postfix;
     std::stack<char> operators;
 
-    for(int i = 0; i < s.length(); i+=1) {
+    for (int i = 0; i < s.length(); i += 1) {
         //in case of number
         if (isdigit(s[i])) {
             std::string number = "";
@@ -155,30 +154,25 @@ Expression* Parser::shuntingYard(std::string s)
             }
             i--;
             postfix.push(number);
-        }
-        else if (s[i] == '-' && (i == 0 || isOperatorOrOpenCloser(s[i-1]))) {
+        } else if (s[i] == '-' && (i == 0 || isOperatorOrOpenCloser(s[i - 1]))) {
             //unary minus
             operators.push('@');
         }
-        //in case of / * + -
+            //in case of / * + -
         else if (isOperator(s[i])) {
-                while (! operators.empty()) {
-                    char c2 = operators.top();
-                    if (isBefore(c2, s[i])) {
-                        operators.pop();
-                        postfix.push(std::string(1, c2));
-                    } else {
-                        break;
-                    }
+            while (!operators.empty()) {
+                char c2 = operators.top();
+                if (isBefore(c2, s[i])) {
+                    operators.pop();
+                    postfix.push(std::string(1, c2));
+                } else {
+                    break;
                 }
+            }
             operators.push(s[i]);
-        }
-
-        else if (s[i] == '(') {
+        } else if (s[i] == '(') {
             operators.push('(');
-        }
-
-        else if (s[i] == ')') {
+        } else if (s[i] == ')') {
             while (!operators.empty()) {
                 char c = operators.top();
                 operators.pop();
@@ -192,7 +186,7 @@ Expression* Parser::shuntingYard(std::string s)
             }
         }
 
-        //in case of variable
+            //in case of variable
         else if (isEnglishOrUnderscore(s[i])) {
             std::string var = "";
             while (isEnglishOrUnderscoreOrNumber(s[i])) {
@@ -210,9 +204,13 @@ Expression* Parser::shuntingYard(std::string s)
         postfix.push(std::string(1, op));
     }
 
+   // while (!postfix.empty()) {
+        //std::cout << postfix.front() << " ";
+      //  postfix.pop();
+    //}
 
     //Read Reversed Polish Notation
-    std::stack<Expression*> st;
+    std::stack<Expression *> st;
 
     while (!postfix.empty()) {
         char first = postfix.front()[0];
@@ -222,8 +220,7 @@ Expression* Parser::shuntingYard(std::string s)
             //number
             st.push(new Number(postfix.front()));
             postfix.pop();
-        }
-        else if (isOperator(first)) {
+        } else if (isOperator(first)) {
             postfix.pop();
 
             Expression *a, *b;
@@ -263,16 +260,17 @@ Expression* Parser::shuntingYard(std::string s)
                     st.push(new UnaryMinus(a));
                     break;
             }
-        }
-        else {
+        } else {
             //Variable
             st.push(new Variable(postfix.front()));
             postfix.pop();
         }
     }
-
-    Expression* p = st.top();
-    st.pop();
-    return p;
+    if (!st.empty()) {
+        Expression *p = st.top();
+        st.pop();
+        return p;
+    }
+    return nullptr;
 }
 

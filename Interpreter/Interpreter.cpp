@@ -48,7 +48,6 @@ void Interpreter::executeFile()
         // Get next command
         command -> execute();
         command = interpretNextRow();
-
     }
 }
 
@@ -164,7 +163,7 @@ void Interpreter::setBlock(Condition* condition)
     bool exit = false;
     Command* nextCommand; // Command to be added
 
-    interpretNextBlockRow(nextCommand, &exit);
+    nextCommand = interpretNextBlockRow(nextCommand, &exit);
     // Add all commands to this If block until '}' or EOF reached
     while (nextCommand != nullptr) {
         condition->addCommand(nextCommand);
