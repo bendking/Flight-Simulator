@@ -4,22 +4,17 @@
 
 #include "ClientBuilder.h"
 
-ClientBuilder::ClientBuilder() {
-
-}
 
 void ClientBuilder::set_client(string ip, int port)
 {
     if (!client_set) {
-        client = Client();
-        client.connect_to(ip, port);
+        client =  new Client;
+        client->connect_to(ip, port);
         client_set = true;
     }
 }
 
 
-Client ClientBuilder::get_client(string ip, int port)
-{
-    set_client(ip, port);
+Client* ClientBuilder::get_client() {
     return client;
 }

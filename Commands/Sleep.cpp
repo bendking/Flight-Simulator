@@ -3,15 +3,16 @@
 //
 
 #include "Sleep.h"
-
+#include <unistd.h>
+#include <thread>
 
 Sleep::Sleep(Expression *_a) {
     a = _a;
 }
 
-// TODO (OFEK)
 void Sleep::execute() {
     // Sleep amount specified
+    std::this_thread::sleep_for(std::chrono::milliseconds((int) a->calculate()));
 }
 
 Sleep::~Sleep() {

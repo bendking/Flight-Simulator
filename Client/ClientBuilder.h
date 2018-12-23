@@ -8,14 +8,13 @@
 
 #include "Client.h"
 
-static Client client;
+static Client* client;
 static bool client_set = false;
 
 class ClientBuilder {
 public:
-    ClientBuilder();
     void set_client(string ip, int port);
-    Client get_client(string ip, int port);
+    Client* get_client();
 };
 
 

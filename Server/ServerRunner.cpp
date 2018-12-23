@@ -11,6 +11,7 @@ ServerRunner::ServerRunner(int port, int refresh_rate) {
     ServerBuilder builder;
     this->server = builder.get_server(port);
     this->port = port;
+    this->refresh = refresh_rate;
     initializeValues();
 }
 
@@ -47,14 +48,14 @@ int ServerRunner::listen() {
     return new_socket;
 }
 
-void* ServerRunner::run(int new_socket, int port, int refresh_rate)
+void* ServerRunner::run(int new_socket)
 {
     // Prepare variables for getting data from server
     std::stringstream stream;
     CodeRow input(',', false);
 
     // Set interval
-    auto interval = std::chrono::nanoseconds(std::chrono::seconds(1)) / refresh_rate;
+    auto interval = std::chrono::nanoseconds(std::chrono::seconds(1)) / refresh;
     while (true) {
         // Get current time
         auto start = std::chrono::system_clock::now();
@@ -64,6 +65,7 @@ void* ServerRunner::run(int new_socket, int port, int refresh_rate)
         stream << server.get_buffer();
         stream >> input;
         // input.print();
+
         // Put values into value map
         for (int i = 0; i < input.size(); i++) {
             valueMap[valueNames[i]] = stof(input[i]);

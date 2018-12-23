@@ -27,7 +27,9 @@ void Symbol::setValue(double value)
     // If bound, send value to simulator
     if (pathSet()) {
         std::string valueStr = std::to_string(value);
-       // client.send_message("set " + path + ' ' + valueStr + "\r\n");
+        ClientBuilder builder;
+        Client* client = builder.get_client();
+        client->send_message("set " + path + ' ' + valueStr + "\r\n");
     }
 }
 

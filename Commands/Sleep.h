@@ -5,15 +5,15 @@
 #ifndef FLIGHT_SIMULATOR_SLEEP_H
 #define FLIGHT_SIMULATOR_SLEEP_H
 
-
 #include "Command.h"
+#include "Sleep.h"
+
 
 class Sleep : public Command {
     Expression *a;
 public:
     Sleep(Expression *_a);
     void execute();
-
     ~Sleep();
 };
 

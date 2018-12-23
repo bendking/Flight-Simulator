@@ -10,16 +10,19 @@ PutVar::PutVar(std::string _name, Expression *_exp)
     exp = _exp;
     name = _name;
 }
+
 PutVar::PutVar(std::string _name, std::string _address)
 {
     address = _address;
     name = _name;
 }
+
 PutVar::PutVar(std::string _name, std::string _var, bool bind)
 {
     var = _var;
     name = _name;
 }
+
 PutVar::~PutVar() {
     if (exp != nullptr) {
         delete exp;
