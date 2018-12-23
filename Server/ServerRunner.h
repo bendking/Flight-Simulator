@@ -6,6 +6,7 @@
 #define FLIGHT_SIMULATOR_SERVERRUNNER_H
 
 #include "ServerBuilder.h"
+#include "../Threads/ThreadManager.h"
 #include <CodeRow.h>
 #include <unordered_map>
 #include <chrono>
@@ -48,7 +49,7 @@ public:
     ServerRunner(int port, int refresh_rate);
     void initializeValues();
     int listen(); // Returns socket
-    void* run(int new_socket, int port = 5400, int refresh = 10);
+    void* run(int new_socket, int port, int refresh, ThreadManager *threadManager);
 };
 
 
