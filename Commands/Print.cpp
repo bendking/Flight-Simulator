@@ -20,13 +20,13 @@ void Print::execute()
     if (a != nullptr) {
         // print expression a
         std::cout << a->calculate();
-    } else {
+    }
+    else {
         // print str
-
         int length = toPrint.size();
-        for(int i=1; i<length; ++i) {
+        for(int i=1; i<length; ++i)
+        {
             std::string str = toPrint[i];
-
             if (i == 1) {
                 str.erase(0, 1);
             }
@@ -34,12 +34,13 @@ void Print::execute()
             if (i==length-1) {
                 str.erase(str.size() - 1, 1);
                 std::cout << str;
-            } else {
+            }
+            else {
                 std::cout << str << ' ';
             }
 
-
         }
-
     }
+    // Drop line
+    std::cout << std::endl;
 }

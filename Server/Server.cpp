@@ -64,6 +64,7 @@ int Server::listen_to()
 }
 
 void Server::read_from(int new_socket) {
+    memset(buffer, 0, sizeof(buffer));
     read_value = read(new_socket, buffer, 1024);
 }
 

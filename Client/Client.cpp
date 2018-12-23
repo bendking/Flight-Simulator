@@ -4,8 +4,6 @@
 
 #include "Client.h"
 
-#define PORT 5402
-#define ADDR "127.0.0.1"
 
 Client::Client()
 {

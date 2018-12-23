@@ -14,7 +14,8 @@ breaks = 0
 throttle = 1
 var h0 = heading
 while alt < 1000 {
-rudder = (h0 – heading)/20
+print alt
+rudder = (h0 - heading)/20
 aileron = - roll / 70
 elevator = pitch / 50
 sleep 250

@@ -122,7 +122,6 @@ Command* Interpreter::interpretLine(std::string line) {
 // Interpret a given row/command
 Command* Interpreter::interpret(CodeRow& lexedLine)
 {
-    // TODO (BEN): Lock values manipulated by threads during the run of this function
     // If the row read was empty OR end of block reached, return NULL
     if (lexedLine.isEmpty() || lexedLine[0] == "}") {
         return nullptr;
