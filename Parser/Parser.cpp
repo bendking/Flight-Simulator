@@ -7,14 +7,6 @@
 Parser::Parser() {
 
 }
-
-Parser::~Parser() {
-    for (auto const& i : threads) {
-        // Do stuff on threads
-        i->finish();
-        delete i;
-    }
-}
 // This function takes care of all cases beside If and While, which are taken care of in the interpreter
 Command* Parser::parse(CodeRow& row)
 {
@@ -24,9 +16,7 @@ Command* Parser::parse(CodeRow& row)
     std::string commandName = args[0];
 
     if (commandName == "openDataServer") {
-        ThreadManager *newThread = new ThreadManager();
-        threads.push_back(newThread);
-        return new OpenServer(shuntingYard(args[1]), shuntingYard(args[2]), newThread);
+        return new OpenServer(shuntingYard(args[1]), shuntingYard(args[2]));
     }
     else if (commandName == "connect") {
         return new Connect(args[1], shuntingYard(args[2]));

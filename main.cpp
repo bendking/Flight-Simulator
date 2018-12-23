@@ -23,7 +23,7 @@ void test_client() {
 void test_server() {
     ServerRunner server(5400, 10);
     int socket = server.listen();
-    //server.run(socket);
+    server.run(socket);
 }
 
 int main() {

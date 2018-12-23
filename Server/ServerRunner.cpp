@@ -47,7 +47,7 @@ int ServerRunner::listen() {
     return new_socket;
 }
 
-void* ServerRunner::run(int new_socket, int port, int refresh_rate, ThreadManager *threadManager)
+void* ServerRunner::run(int new_socket, int port, int refresh_rate)
 {
     // Prepare variables for getting data from server
     std::stringstream stream;
@@ -55,7 +55,7 @@ void* ServerRunner::run(int new_socket, int port, int refresh_rate, ThreadManage
 
     // Set interval
     auto interval = std::chrono::nanoseconds(std::chrono::seconds(1)) / refresh_rate;
-    while (threadManager->shouldStopThread()) {
+    while (true) {
         // Get current time
         auto start = std::chrono::system_clock::now();
 

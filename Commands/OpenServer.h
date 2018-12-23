@@ -9,15 +9,14 @@
 #include <pthread.h>
 #include "../Server/ServerRunner.h"
 #include "../Server/ServerBuilder.h"
-#include "../Threads/ThreadManager.h"
+
 
 
 class OpenServer: public Command {
 private:
     Expression *port, *refreshRate;
-    ThreadManager *threadManager;
 public:
-    OpenServer(Expression *a, Expression *b, ThreadManager *_threadManager);
+    OpenServer(Expression *a, Expression *b);
     ~OpenServer();
     void execute();
 };

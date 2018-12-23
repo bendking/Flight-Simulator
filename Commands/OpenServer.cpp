@@ -7,20 +7,15 @@
 struct arg_struct {
     ServerRunner* server;
     int new_socket;
-    int port;
-    int refreshRate;
-    ThreadManager* threadManager;
 };
 
-OpenServer::OpenServer(Expression *a, Expression *b, ThreadManager *_threadManager)
+OpenServer::OpenServer(Expression *a, Expression *b)
 {
     port = a;
     refreshRate = b;
-    threadManager = _threadManager;
 }
 
-OpenServer::~OpenServer()
-{
+OpenServer::~OpenServer() {
     delete port;
     delete refreshRate;
 }
@@ -30,17 +25,16 @@ void* openDataServer(void *arguments)
     // Open data server
     auto args = (struct arg_struct*) arguments;
     ServerRunner* server = args->server;
+    int new_socket = args->new_socket;
 
     // Free struct
     free(args);
 
     // Run it
-    server->run(args->new_socket, args->port, args->refreshRate, args->threadManager);
+    server->run(new_socket);
 
     // Free server
     delete server;
-
-    pthread_exit(nullptr);
 }
 
 /*
@@ -50,23 +44,21 @@ void* openDataServer(void *arguments)
  */
 void OpenServer::execute()
 {
-    // Make struct to hold arguments for thread
+    // Make struct to hold arguements for thread
     auto args = (struct arg_struct*) malloc(sizeof(struct arg_struct));
     // Get server related parameters
-    int _port = (int) port->calculate();
-    int _refreshRate = (int) refreshRate->calculate();
+    int _port = port->calculate();
+    int _refreshRate = refreshRate->calculate();
 
     // Make Server Runner
     ServerRunner *server = new ServerRunner(_port, _refreshRate);
     // Wait for connection (simulator)
     int new_socket = server->listen();
 
-    // Declare arguments to be sent for thread
+    // Declare arguements to be sent for thread
     args->server = server;
     args->new_socket = new_socket;
-    args->threadManager = threadManager;
-    args->port = _port;
-    args->refreshRate = _refreshRate;
     // Create new thread
-    pthread_create(threadManager->getThread(), nullptr, openDataServer, args);
+    pthread_t th;
+    pthread_create(&th, NULL, openDataServer, args);
 }
