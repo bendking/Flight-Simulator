@@ -26,10 +26,15 @@ void* openDataServer(void *arguments)
     auto args = (struct arg_struct*) arguments;
     ServerRunner* server = args->server;
     int new_socket = args->new_socket;
+
+    // Free struct
     free(args);
 
     // Run it
     server->run(new_socket);
+
+    // Free server
+    delete server;
 }
 
 /*
@@ -46,12 +51,12 @@ void OpenServer::execute()
     int _refreshRate = refreshRate->calculate();
 
     // Make Server Runner
-    ServerRunner server(_port, _refreshRate);
+    ServerRunner *server = new ServerRunner(_port, _refreshRate);
     // Wait for connection (simulator)
-    int new_socket = server.listen();
+    int new_socket = server->listen();
 
     // Declare arguements to be sent for thread
-    args->server = &server;
+    args->server = server;
     args->new_socket = new_socket;
     // Create new thread
     pthread_t th;
