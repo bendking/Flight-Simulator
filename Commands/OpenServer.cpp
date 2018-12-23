@@ -5,7 +5,7 @@
 #include "OpenServer.h"
 
 struct arg_struct {
-    ServerRunner server;
+    ServerRunner* server;
     int new_socket;
 };
 
@@ -23,13 +23,13 @@ OpenServer::~OpenServer() {
 void* openDataServer(void *arguments)
 {
     // Open data server
-    arg_struct* args = (struct arg_struct*) arguments;
-    ServerRunner server = args->server;
+    auto args = (struct arg_struct*) arguments;
+    ServerRunner* server = args->server;
     int new_socket = args->new_socket;
     free(args);
 
     // Run it
-    server.run(new_socket);
+    server->run(new_socket);
 }
 
 /*
@@ -40,7 +40,8 @@ void* openDataServer(void *arguments)
 void OpenServer::execute()
 {
     // Make struct to hold arguements for thread
-    struct arg_struct* args = (struct arg_struct*) malloc(sizeof(struct arg_struct));
+    auto args = (struct arg_struct*) malloc(sizeof(struct arg_struct));
+    // Get server related parameters
     int _port = port->calculate();
     int _refreshRate = refreshRate->calculate();
 
@@ -49,8 +50,8 @@ void OpenServer::execute()
     // Wait for connection (simulator)
     int new_socket = server.listen();
 
-    // Prepare for thread
-    args->server = server;
+    // Declare arguements to be sent for thread
+    args->server = &server;
     args->new_socket = new_socket;
     // Create new thread
     pthread_t th;
