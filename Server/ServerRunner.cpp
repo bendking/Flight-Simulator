@@ -56,7 +56,7 @@ void* ServerRunner::run(int new_socket)
 
     // Set interval
     auto interval = std::chrono::nanoseconds(std::chrono::seconds(1)) / refresh;
-    while (true) {
+    while (!shouldStopThreads) {
         // Get current time
         auto start = std::chrono::system_clock::now();
 
@@ -74,7 +74,7 @@ void* ServerRunner::run(int new_socket)
         // Put values into Symbol Map
         for (std::pair<std::string, float> value : valueMap) {
             if (symbolExists(value.first)) {
-                symbolMap[value.first]->setValue(value.second);
+                symbolMap[value.first]->setValue(value.second, false);
             }
         }
 

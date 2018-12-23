@@ -20,12 +20,12 @@ double Symbol::getValue() const {
     return value;
 }
 
-void Symbol::setValue(double value)
+void Symbol::setValue(double value, bool notifyServer)
 {
     // Set local value
     Symbol::value = value;
     // If bound, send value to simulator
-    if (pathSet()) {
+    if (pathSet() && notifyServer) {
         std::string valueStr = std::to_string(value);
         ClientBuilder builder;
         Client* client = builder.get_client();

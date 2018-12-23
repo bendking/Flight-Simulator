@@ -70,4 +70,4 @@ add_executable(Flight_Simulator
         Server/Server.cpp
         Server/Server.h
         Server/ServerBuilder.cpp
-        Server/ServerBuilder.h Server/ServerRunner.cpp Server/ServerRunner.h)
+        Server/ServerBuilder.h Server/ServerRunner.cpp Server/ServerRunner.h Threads/ThreadsVector.cpp Threads/ThreadsVector.h)

@@ -15,7 +15,7 @@
 #include "../Commands/If.h"
 #include "../Commands/While.h"
 #include "SymbolMap.h"
-
+#include "../Threads/ThreadsVector.h"
 class Interpreter {
 private:
     Lexer lexer;

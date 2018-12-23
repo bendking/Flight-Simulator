@@ -24,7 +24,7 @@ public:
     explicit Symbol(std::string address);
 
     double getValue() const;
-    void setValue(double value);
+    void setValue(double value, bool notifyServer);
     const std::string &getPath() const;
     void setPath(const std::string &address);
 

@@ -41,7 +41,7 @@ void DefineVar::execute() {
     symbolMap.emplace(std::make_pair(name, new Symbol()));
     // Check whether given a numerical value or bind address
     if (exp != nullptr) { // If given number, set value (pure value variable)
-        symbolMap[name]->setValue(exp->calculate());
+        symbolMap[name]->setValue(exp->calculate(), true);
     } else { // If given bind address, set binding (local value will update automatically)
         if (var == "") {
             symbolMap[name]->setPath(address);

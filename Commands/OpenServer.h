@@ -9,7 +9,7 @@
 #include <pthread.h>
 #include "../Server/ServerRunner.h"
 #include "../Server/ServerBuilder.h"
-
+#include "../Threads/ThreadsVector.h"
 
 
 class OpenServer: public Command {

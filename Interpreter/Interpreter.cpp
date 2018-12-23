@@ -20,10 +20,21 @@ Interpreter::Interpreter(std::string fileName) : Interpreter() {
 
 // Destructors
 Interpreter::~Interpreter() {
+
+    // Exit other threads
+    shouldStopThreads = true;
+
+    //wait for them to complete
+    for (auto th : threadsVector)
+        pthread_join(*th, NULL);
+
+    // Delete all threads
+    for (auto th : threadsVector)
+        delete th;
+
     // Delete symbol map
-    for ( const auto &p : symbolMap ){
+    for ( const auto &p : symbolMap )
         delete p.second;
-    }
 }
 
 // Set file on Lexer, return if set succeeded

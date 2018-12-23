@@ -59,6 +59,7 @@ void OpenServer::execute()
     args->server = server;
     args->new_socket = new_socket;
     // Create new thread
-    pthread_t th;
-    pthread_create(&th, NULL, openDataServer, args);
+    pthread_t *th = new pthread_t;
+    threadsVector.push_back(th);
+    pthread_create(th, NULL, openDataServer, args);
 }

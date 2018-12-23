@@ -37,7 +37,7 @@ void PutVar::execute()
 {
     // Check whether given a numerical value or bind address
     if (exp != nullptr) { // If given number, set value (pure value variable)
-        symbolMap[name]->setValue(exp->calculate());
+        symbolMap[name]->setValue(exp->calculate(), true);
     } else { // If given bind address, set binding (local value will update automatically)
         symbolMap[name]->setPath(address);
     }
