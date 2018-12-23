@@ -12,7 +12,7 @@ Variable::Variable(std::string _name) {
 double Variable:: calculate()
 {
     if (symbolExists(name)) {
-        return symbolMap.at(name).getValue();
+        return symbolMap.at(name)->getValue();
     }
     else {
         throw "Variable doesn't exist";

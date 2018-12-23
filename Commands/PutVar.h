@@ -12,11 +12,13 @@
 class PutVar : public Command {
 private:
     Expression *exp = nullptr;
-    std::string address;
-    std::string name;
+    std::string address = "";
+    std::string name = "";
+    std::string var = "";
 public:
     PutVar(std::string _name, std::string _address);
     PutVar(std::string _name, Expression * _exp);
+    PutVar(std::string _name, std::string _var, bool bind);
 
     void execute();
 

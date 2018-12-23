@@ -18,6 +18,14 @@ Interpreter::Interpreter(std::string fileName) : Interpreter() {
     setFile(fileName);
 }
 
+// Destructors
+Interpreter::~Interpreter() {
+    // Delete symbol map
+    for ( const auto &p : symbolMap ){
+        delete p.second;
+    }
+}
+
 // Set file on Lexer, return if set succeeded
 bool Interpreter::setFile(std::string fileName) {
     return lexer.setFile(fileName);

@@ -14,6 +14,7 @@
 #include "../Commands/PutVar.h"
 #include "../Commands/If.h"
 #include "../Commands/While.h"
+#include "SymbolMap.h"
 
 class Interpreter {
 private:
@@ -23,6 +24,8 @@ public:
     // Constructors
     Interpreter();
     explicit Interpreter(std::string fileName);
+    // Destructors
+    ~Interpreter();
     // File
     bool setFile(std::string fileName);
     bool fileSet();

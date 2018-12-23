@@ -24,12 +24,16 @@ Command* Parser::parse(CodeRow& row)
     else if (commandName == "var") {
         if (args[3] == "bind") {
             //need to bind
-            std::string address = args[4];
-            //remove ""
-            address.erase(0, 1);
-            address.erase(address.size() - 1, 1);
+            std::string bindTo = args[4];
 
-            return new DefineVar(args[1], address);
+            if (bindTo[0] == '\"') {
+                //remove ""
+                bindTo.erase(0, 1);
+                bindTo.erase(bindTo.size() - 1, 1);
+                return new DefineVar(args[1], bindTo);
+            } else {
+                return new DefineVar(args[1], bindTo, 1);
+            }
         } else {
             //number
             Expression *exp = shuntingYard(args[3]);

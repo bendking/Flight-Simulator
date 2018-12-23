@@ -72,7 +72,7 @@ void* ServerRunner::run(int new_socket, int port, int refresh_rate)
         // Put values into Symbol Map
         for (std::pair<std::string, float> value : valueMap) {
             if (symbolExists(value.first)) {
-                symbolMap[value.first].setValue(value.second);
+                symbolMap[value.first]->setValue(value.second);
             }
         }
 

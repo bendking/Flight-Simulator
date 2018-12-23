@@ -9,7 +9,7 @@
 #include "Symbol.h"
 
 // Global variable - the symbol hashmap
-extern std::unordered_map<std::string, Symbol> symbolMap;
+extern std::unordered_map<std::string, Symbol*> symbolMap;
 // Check if symbol exists in Symbol Map
 bool symbolExists(std::string symbol);
 
