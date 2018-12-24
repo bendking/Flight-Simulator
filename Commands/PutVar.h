@@ -7,6 +7,7 @@
 
 #include "Command.h"
 #include "../Interpreter/SymbolMap.h"
+#include "../Interpreter/MutexSingle.h"
 
 
 class PutVar : public Command {

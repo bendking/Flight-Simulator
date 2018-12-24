@@ -9,6 +9,7 @@
 #include "../Threads/ThreadsVector.h"
 #include "../Interpreter/SymbolMap.h"
 #include "../Lexer/CodeRow.h"
+#include "../Interpreter/MutexSingle.h"
 #include <unordered_map>
 #include <chrono>
 #include <thread>

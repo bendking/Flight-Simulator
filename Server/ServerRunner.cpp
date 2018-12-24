@@ -4,8 +4,6 @@
 
 #include "ServerRunner.h"
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wmissing-noreturn"
 
 ServerRunner::ServerRunner(int port, int refresh_rate) {
     // Set-up server
@@ -74,12 +72,19 @@ void ServerRunner::run(int new_socket)
             valueMap[valueNames[i]] = stof(input[i]);
         }
 
+        // Get mutex & lock
+        MutexSingle mutexSingle;
+        mutexSingle.lock();
+
         // Put values into Symbol Map
         for (std::pair<std::string, float> value : valueMap) {
             if (symbolExists(value.first)) {
                 symbolMap[value.first]->setValue(value.second, false);
             }
         }
+
+        // Unlock mutex
+        mutexSingle.unlock();
 
         // Determine thread sleep duration & sleep
         auto end = std::chrono::system_clock::now();
