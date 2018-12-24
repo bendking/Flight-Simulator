@@ -187,7 +187,7 @@ Command* Interpreter::interpretWhile(CodeRow &row)
 void Interpreter::setBlock(Condition* condition)
 {
     bool exit = false;
-    Command* nextCommand; // Command to be added
+    Command* nextCommand = nullptr; // Command to be added
 
     nextCommand = interpretNextBlockRow(nextCommand, &exit);
     // Add all commands to this If block until '}' or EOF reached

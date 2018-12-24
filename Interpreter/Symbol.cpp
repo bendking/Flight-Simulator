@@ -40,14 +40,8 @@ const std::string &Symbol::getPath() const {
 void Symbol::setPath(const std::string &address)
 {
     Symbol::path = address;
-    updateValue();
 }
 
 bool Symbol::pathSet() {
     return !(path == "");
-}
-
-// TODO (BEN): Figure out getting value from simulation as server and implement
-double Symbol::updateValue() {
-    // Update value through bound address
 }

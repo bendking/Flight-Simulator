@@ -17,6 +17,7 @@ Server ServerBuilder::get_server() {
     if (server_set) {
         return server;
     }
+    throw "Server is not set";
 }
 
 void ServerBuilder::stop() {

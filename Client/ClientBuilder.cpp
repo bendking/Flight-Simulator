@@ -19,6 +19,8 @@ Client* ClientBuilder::get_client() {
     if (client_set) {
         return client;
     }
+    throw "Client is not set";
+
 }
 
 void ClientBuilder::stop() {

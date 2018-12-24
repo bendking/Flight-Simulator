@@ -29,7 +29,6 @@ public:
     void setPath(const std::string &address);
 
     bool pathSet();
-    double updateValue();
 };
 
 
