@@ -4,9 +4,6 @@
 
 #include "ServerBuilder.h"
 
-ServerBuilder::ServerBuilder() {
-    
-}
 
 void ServerBuilder::set_server(int port) {
     if (!server_set) {
@@ -16,7 +13,14 @@ void ServerBuilder::set_server(int port) {
     }
 }
 
-Server ServerBuilder::get_server(int port) {
-    set_server(port);
-    return server;
+Server ServerBuilder::get_server() {
+    if (server_set) {
+        return server;
+    }
+}
+
+void ServerBuilder::stop() {
+    if (server_set) {
+        server.stop();
+    }
 }

@@ -8,6 +8,8 @@
 #include <sys/socket.h>	// socket
 #include <arpa/inet.h>	// inet_addr
 #include <netdb.h>	// hostent
+#include <unistd.h>
+
 
 using namespace std;
 
@@ -22,6 +24,7 @@ public:
     bool connect_to(string address, int port);
     bool send_message(string data);
     string receive(int);
+    void stop();
 };
 
 

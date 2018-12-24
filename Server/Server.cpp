@@ -75,3 +75,9 @@ char* Server::get_buffer() {
 int Server::get_read_value() {
     return read_value;
 }
+
+// Close connection
+void Server::stop() {
+    shutdown(sock, SHUT_WR);
+    close(sock);
+}

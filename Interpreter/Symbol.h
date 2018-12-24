@@ -6,7 +6,7 @@
 #define FLIGHTSIMULATOR_SYMBOLVALUE_H
 
 #include <string>
-#include <ClientBuilder.h>
+#include "../Client/ClientBuilder.h"
 
 
 /*

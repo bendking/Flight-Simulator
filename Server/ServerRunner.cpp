@@ -8,8 +8,11 @@
 #pragma clang diagnostic ignored "-Wmissing-noreturn"
 
 ServerRunner::ServerRunner(int port, int refresh_rate) {
+    // Set-up server
     ServerBuilder builder;
-    this->server = builder.get_server(port);
+    builder.set_server(port);
+    // Initialize members
+    this->server = builder.get_server();
     this->port = port;
     this->refresh = refresh_rate;
     initializeValues();
@@ -86,3 +89,6 @@ void ServerRunner::run(int new_socket)
     }
 }
 
+void ServerRunner::stop() {
+    server.stop();
+}

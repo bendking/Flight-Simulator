@@ -7,11 +7,11 @@
 
 #include "ServerBuilder.h"
 #include "../Threads/ThreadsVector.h"
-#include <CodeRow.h>
+#include "../Interpreter/SymbolMap.h"
+#include "../Lexer/CodeRow.h"
 #include <unordered_map>
 #include <chrono>
 #include <thread>
-#include <SymbolMap.h>
 
 
 
@@ -51,6 +51,7 @@ public:
     void initializeValues();
     int listen(); // Returns socket
     void run(int new_socket);
+    void stop();
 };
 
 

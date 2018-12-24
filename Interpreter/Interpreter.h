@@ -5,6 +5,7 @@
 #ifndef FLIGHTSIMULATOR_INTERPRETER_H
 #define FLIGHTSIMULATOR_INTERPRETER_H
 
+#include "SymbolMap.h"
 #include "../Commands/Command.h"
 #include "../Lexer/Lexer.h"
 #include "../Parser/Parser.h"
@@ -14,8 +15,9 @@
 #include "../Commands/PutVar.h"
 #include "../Commands/If.h"
 #include "../Commands/While.h"
-#include "SymbolMap.h"
 #include "../Threads/ThreadsVector.h"
+
+
 class Interpreter {
 private:
     Lexer lexer;

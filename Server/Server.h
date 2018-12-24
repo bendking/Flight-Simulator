@@ -31,6 +31,7 @@ public:
     void read_from(int new_socket);
     char* get_buffer();
     int get_read_value();
+    void stop();
 };
 
 

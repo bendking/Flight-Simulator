@@ -66,3 +66,8 @@ string Client::receive(int size = 512)
     return reply;
 }
 
+// Close connection
+void Client::stop() {
+    shutdown(sock, SHUT_WR);
+    close(sock);
+}

@@ -32,7 +32,7 @@ void* openDataServer(void *arguments)
 
     // Run it
     server->run(new_socket);
-
+    server->stop();
     // Free server
     delete server;
 

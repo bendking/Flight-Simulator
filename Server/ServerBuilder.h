@@ -12,9 +12,9 @@ static bool server_set = false;
 
 class ServerBuilder {
 public:
-    ServerBuilder();
     void set_server(int port);
-    Server get_server(int port);
+    Server get_server();
+    void stop();
 };
 
 

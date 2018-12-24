@@ -24,7 +24,7 @@ Interpreter::~Interpreter() {
     // Exit other threads
     shouldStopThreads = true;
 
-    //wait for them to complete
+    // Wait for them to complete
     for (auto th : threadsVector)
         pthread_join(*th, NULL);
 
@@ -33,8 +33,12 @@ Interpreter::~Interpreter() {
         delete th;
 
     // Delete symbol map
-    for ( const auto &p : symbolMap )
+    for (const auto &p : symbolMap)
         delete p.second;
+
+    // Close connections    
+    ClientBuilder builder;
+    builder.stop();
 }
 
 // Set file on Lexer, return if set succeeded

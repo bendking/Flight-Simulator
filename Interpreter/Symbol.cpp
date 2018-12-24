@@ -28,8 +28,8 @@ void Symbol::setValue(double value, bool notifyServer)
     if (pathSet() && notifyServer) {
         std::string valueStr = std::to_string(value);
         ClientBuilder builder;
-        Client* client = builder.get_client();
-        client->send_message("set " + path + ' ' + valueStr + "\r\n");
+        Client client = builder.get_client();
+        client.send_message("set " + path + ' ' + valueStr + "\r\n");
     }
 }
 
