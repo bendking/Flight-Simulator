@@ -4,14 +4,22 @@
 
 #include "MutexSingle.h"
 
+
 MutexSingle::MutexSingle() {
-    pthread_mutex_init(&mutex, nullptr);
+    if (mutex == nullptr) {
+        mutex = new pthread_mutex_t;
+        pthread_mutex_init(mutex, nullptr);
+    }
+}
+
+MutexSingle::~MutexSingle() {
+    delete mutex;
 }
 
 void MutexSingle::lock() {
-    pthread_mutex_lock(&mutex);
+    pthread_mutex_lock(mutex);
 }
 
 void MutexSingle::unlock() {
-    pthread_mutex_destroy(&mutex);
+    pthread_mutex_destroy(mutex);
 }
