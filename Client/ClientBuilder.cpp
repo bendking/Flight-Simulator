@@ -8,14 +8,14 @@
 void ClientBuilder::set_client(string ip, int port)
 {
     if (!client_set) {
-        Client client;
-        client.connect_to(ip, port);
+        client = new Client;
+        client->connect_to(ip, port);
         client_set = true;
     }
 }
 
 
-Client ClientBuilder::get_client() {
+Client* ClientBuilder::get_client() {
     if (client_set) {
         return client;
     }
@@ -23,6 +23,7 @@ Client ClientBuilder::get_client() {
 
 void ClientBuilder::stop() {
     if (client_set) {
-        client.stop();
+        client->stop();
+        delete client;
     }
 }

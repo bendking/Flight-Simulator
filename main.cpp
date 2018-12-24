@@ -24,8 +24,8 @@ void test_client()
 {
     ClientBuilder builder;
     builder.set_client("127.0.0.1", 5402);
-    Client client = builder.get_client();
-    client.send_message("set /controls/flight/rudder 1\r\n");
+    Client* client = builder.get_client();
+    client->send_message("set /controls/flight/rudder 1\r\n");
 }
 
 void test_server()
