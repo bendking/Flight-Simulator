@@ -12,14 +12,14 @@ MutexSingle::MutexSingle() {
     }
 }
 
-MutexSingle::~MutexSingle() {
-    delete mutex;
-}
-
 void MutexSingle::lock() {
     pthread_mutex_lock(mutex);
 }
 
 void MutexSingle::unlock() {
-    pthread_mutex_destroy(mutex);
+    pthread_mutex_unlock(mutex);
+}
+
+void MutexSingle::destroy() {
+    delete mutex;
 }

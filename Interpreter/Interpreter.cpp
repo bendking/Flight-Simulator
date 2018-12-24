@@ -39,6 +39,10 @@ Interpreter::~Interpreter() {
     // Close connections    
     ClientBuilder builder;
     builder.stop();
+
+    // Delete mutex
+    MutexSingle mutexSingle;
+    mutexSingle.destroy();
 }
 
 // Set file on Lexer, return if set succeeded

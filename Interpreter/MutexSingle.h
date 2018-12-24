@@ -7,14 +7,14 @@
 
 #include <pthread.h>
 
+static pthread_mutex_t* mutex;
+
 class MutexSingle {
-private:
-    static pthread_mutex_t* mutex;
 public:
     MutexSingle();
-    ~MutexSingle();
     void lock();
     void unlock();
+    void destroy();
 };
 
 
