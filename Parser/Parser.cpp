@@ -91,6 +91,7 @@ Condition* Parser::parseCondition(CodeRow& row)
         return new While(first, row[2], second);
     }
 
+    return nullptr;
 }
 
 

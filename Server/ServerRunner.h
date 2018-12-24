@@ -50,7 +50,7 @@ public:
     ServerRunner(int port, int refresh_rate);
     void initializeValues();
     int listen(); // Returns socket
-    void* run(int new_socket);
+    void run(int new_socket);
 };
 
 

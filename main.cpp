@@ -30,7 +30,25 @@ void test_server() {
     server.run(socket);
 }
 
-int main() {
-    test_interpreter();
+void start_program(int argc, char *argv[]) {
+    // Set default
+    char const *p = "input";
+
+    // If there is other file name from arguments
+    if (argc > 1) {
+        p = argv[1];
+    }
+
+    // Set interpreter
+    Interpreter interpreter(p);
+    interpreter.executeFile();
+
+}
+
+int main(int argc, char *argv[]) {
+
+    // Start
+    start_program(argc, argv);
+
     return 0;
 }

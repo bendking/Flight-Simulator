@@ -48,7 +48,7 @@ int ServerRunner::listen() {
     return new_socket;
 }
 
-void* ServerRunner::run(int new_socket)
+void ServerRunner::run(int new_socket)
 {
     // Prepare variables for getting data from server
     std::stringstream stream;

@@ -35,6 +35,8 @@ void* openDataServer(void *arguments)
 
     // Free server
     delete server;
+
+    return nullptr;
 }
 
 /*
