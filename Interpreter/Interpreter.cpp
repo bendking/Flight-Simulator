@@ -24,9 +24,11 @@ Interpreter::~Interpreter() {
     // Exit other threads
     shouldStopThreads = true;
 
+    char *b;
+
     // Wait for them to complete
     for (auto th : threadsVector)
-        pthread_join(*th, NULL);
+        pthread_join(*th, (void**)&b);
 
     // Delete all threads
     for (auto th : threadsVector)
