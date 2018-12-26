@@ -26,6 +26,7 @@ private:
     int read_value;
 public:
     Server();
+    Server(int port);
     bool bind_to(int port);
     int listen_to();
     void read_from(int new_socket);

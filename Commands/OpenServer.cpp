@@ -27,7 +27,7 @@ void* openDataServer(void *arguments)
     ServerRunner* runner = args->server;
     int new_socket = args->new_socket;
 
-    // Run it
+    // Run server & stop when told by main
     runner->run(new_socket);
     runner->stop();
 
@@ -47,18 +47,17 @@ void OpenServer::execute()
 {
     // Make struct to hold arguements for thread
     auto args = (struct arg_struct*) malloc(sizeof(struct arg_struct));
-    // Get server related parameters
     int _port = (int) port->calculate();
     int _refreshRate = (int) refreshRate->calculate();
 
-    // Make Server Runner
+    // Make Server Runner & wait for connection
     ServerRunner *server = new ServerRunner(_port, _refreshRate);
-    // Wait for connection (simulator)
     int new_socket = server->listen();
 
     // Declare arguments to be sent for thread
     args->server = server;
     args->new_socket = new_socket;
+
     // Create new thread
     pthread_t *th = new pthread_t;
     threadsVector.push_back(th);

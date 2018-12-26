@@ -12,6 +12,11 @@ Server::Server() {
     port = 0;
 }
 
+Server::Server(int port) {
+    sock = -1;
+    bind_to(port);
+}
+
 bool Server::bind_to(int port)
 {
     this->port = port;
