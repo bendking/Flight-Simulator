@@ -69,6 +69,7 @@ void ServerRunner::run(int new_socket)
 
         // Put values into value map
         for (int i = 0; i < input.size(); i++) {
+            // If path exists
             valueMap[valueNames[i]] = stof(input[i]);
         }
 
@@ -78,9 +79,12 @@ void ServerRunner::run(int new_socket)
 
         // Update values
         for (std::pair<std::string, Symbol*> symbol : symbolMap) {
-            symbol.second->setValue(valueMap[symbol.first], false);
+            string path = symbol.second->getPath();
+            if (valueMap.count(path) > 0) {
+                symbol.second->setValue(valueMap[symbol.second->getPath()], false);
+            }
         }
-        g
+
 
         // Unlock mutex
         mutexSingle.unlock();
