@@ -59,8 +59,8 @@ int Server::listen_to()
 
     int addrlen = sizeof(address);
     int new_socket;
-    // Attempt to accept new client
-    if ((new_socket = accept(sock, (struct sockaddr *)&address, (socklen_t*)&addrlen)) < 0) {
+    // Attempt to accept new client                  HUGE BUG
+    if ((new_socket = accept(sock, (struct sockaddr *)&server, (socklen_t*)&addrlen)) < 0) {
         perror("accept");
         return false;
     }
