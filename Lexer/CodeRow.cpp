@@ -155,7 +155,7 @@ std::string CodeRow::normalizeLine(std::string line)
         // Remove spaces before and after
         else if (normalLine[i] == '/' || normalLine[i] == '*' || normalLine[i] == '+' || normalLine[i] == '-') {
             // while there are no spaces
-            while (normalLine[i - 1] == ' ' && normalLine[i - 2] != '=') {
+            while (normalLine[i - 1] == ' ' && normalLine[i - 2] != '=' && normalLine[i - 2] != '<' && normalLine[i - 2] != '>') {
                 normalLine.erase(i - 1, 1);
                 i--;
             }
