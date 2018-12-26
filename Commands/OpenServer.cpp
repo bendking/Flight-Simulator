@@ -24,17 +24,15 @@ void* openDataServer(void *arguments)
 {
     // Open data server
     auto args = (struct arg_struct*) arguments;
-    ServerRunner* server = args->server;
+    ServerRunner* runner = args->server;
     int new_socket = args->new_socket;
 
-
     // Run it
-    server->run(new_socket);
-    server->stop();
+    runner->run(new_socket);
+    runner->stop();
 
-    // Free server
-    delete server;
-    // Free struct
+    // Free server & struct
+    delete runner;
     free(args);
     
     return nullptr;

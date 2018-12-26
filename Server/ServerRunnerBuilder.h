@@ -1,0 +1,14 @@
+//
+// Created by ben on 12/26/18.
+//
+
+#ifndef FLIGHT_SIMULATOR_SERVERRUNNERBUILDER_H
+#define FLIGHT_SIMULATOR_SERVERRUNNERBUILDER_H
+
+
+class ServerRunnerBuilder {
+
+};
+
+
+#endif //FLIGHT_SIMULATOR_SERVERRUNNERBUILDER_H

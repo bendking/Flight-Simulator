@@ -20,7 +20,7 @@
 
 class ServerRunner {
 private:
-    Server server;
+    Server* server;
     int port;
     int refresh;
     std::unordered_map<std::string, float> valueMap;
@@ -49,6 +49,7 @@ private:
                                       "/engines/engine/rpm"};
 public:
     ServerRunner(int port, int refresh_rate);
+    ~ServerRunner();
     void initializeValues();
     int listen(); // Returns socket
     void run(int new_socket);

@@ -7,13 +7,13 @@
 
 #include "Server.h"
 
-static Server server;
+static Server* server;
 static bool server_set = false;
 
 class ServerBuilder {
 public:
     void set_server(int port);
-    Server get_server();
+    Server* get_server();
     void stop();
 };
 

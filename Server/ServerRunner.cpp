@@ -6,14 +6,25 @@
 
 
 ServerRunner::ServerRunner(int port, int refresh_rate) {
+    // Initialize members
+
     // Set-up server
+
+    // OLD
     ServerBuilder builder;
     builder.set_server(port);
-    // Initialize members
     this->server = builder.get_server();
+    /* NEW
+    Server* server = new Server;
+    server->bind_to(port);
+     */
     this->port = port;
     this->refresh = refresh_rate;
     initializeValues();
+}
+
+ServerRunner::~ServerRunner() {
+    delete server;
 }
 
 void ServerRunner::initializeValues ()
@@ -45,7 +56,7 @@ void ServerRunner::initializeValues ()
 
 
 int ServerRunner::listen() {
-    int new_socket = server.listen_to();
+    int new_socket = server->listen_to();
     return new_socket;
 }
 
@@ -62,8 +73,8 @@ void ServerRunner::run(int new_socket)
         auto start = std::chrono::system_clock::now();
 
         // Get most recent line from server
-        server.read_from(new_socket);
-        stream << server.get_buffer();
+        server->read_from(new_socket);
+        stream << server->get_buffer();
         stream >> input;
 //        input.print();
 
@@ -98,5 +109,5 @@ void ServerRunner::run(int new_socket)
 }
 
 void ServerRunner::stop() {
-    server.stop();
+    server->stop();
 }

@@ -7,13 +7,13 @@
 
 void ServerBuilder::set_server(int port) {
     if (!server_set) {
-        server = Server();
-        server.bind_to(port);
+        server = new Server();
+        server->bind_to(port);
         server_set = true;
     }
 }
 
-Server ServerBuilder::get_server() {
+Server* ServerBuilder::get_server() {
     if (server_set) {
         return server;
     }
@@ -22,6 +22,6 @@ Server ServerBuilder::get_server() {
 
 void ServerBuilder::stop() {
     if (server_set) {
-        server.stop();
+        server->stop();
     }
 }
