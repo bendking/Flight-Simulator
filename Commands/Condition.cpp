@@ -26,7 +26,6 @@ void Condition::addCommand(Command* command) {
     commands.push_back(command);
 }
 
-// TODO (OFEK): Implement expression class
 // Check whether the condition expressed is true
 bool Condition::conditionTrue() {
 

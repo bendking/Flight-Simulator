@@ -65,7 +65,7 @@ void ServerRunner::run(int new_socket)
         server.read_from(new_socket);
         stream << server.get_buffer();
         stream >> input;
-        // input.print();
+//        input.print();
 
         // Put values into value map
         for (int i = 0; i < input.size(); i++) {
@@ -76,12 +76,11 @@ void ServerRunner::run(int new_socket)
         MutexSingle mutexSingle;
         mutexSingle.lock();
 
-        // Put values into Symbol Map
-        for (std::pair<std::string, float> value : valueMap) {
-            if (symbolExists(value.first)) {
-                symbolMap[value.first]->setValue(value.second, false);
-            }
+        // Update values
+        for (std::pair<std::string, Symbol*> symbol : symbolMap) {
+            symbol.second->setValue(valueMap[symbol.first], false);
         }
+        g
 
         // Unlock mutex
         mutexSingle.unlock();
