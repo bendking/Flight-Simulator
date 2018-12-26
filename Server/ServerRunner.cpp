@@ -95,6 +95,8 @@ void ServerRunner::run(int new_socket)
         auto sleep_duration = interval - delay;
         std::this_thread::sleep_for(sleep_duration);
     }
+    // Shut-down server
+    stop();
 }
 
 void ServerRunner::stop() {
