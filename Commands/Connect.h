@@ -11,9 +11,9 @@
 
 
 class Connect: public Command {
-std::string ip;
-Expression *port;
-
+private:
+    std::string ip;
+    Expression *port;
 public:
     Connect(std::string _ip, Expression *_port);
     void execute();

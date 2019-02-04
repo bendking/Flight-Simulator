@@ -45,8 +45,8 @@ void* openDataServer(void *arguments)
  */
 void OpenServer::execute()
 {
-    // Make struct to hold arguements for thread
-    auto args = (struct arg_struct*) malloc(sizeof(struct arg_struct));
+    // Make struct to hold arguments for thread
+    auto args = new arg_struct;
     int _port = (int) port->calculate();
     int _refreshRate = (int) refreshRate->calculate();
 

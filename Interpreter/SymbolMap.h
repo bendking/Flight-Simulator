@@ -8,8 +8,10 @@
 #include <unordered_map>
 #include "Symbol.h"
 
+using namespace std;
+
 // Global variable - the symbol hashmap
-extern std::unordered_map<std::string, Symbol*> symbolMap;
+extern unordered_map<std::string, Symbol*> symbolMap;
 // Check if symbol exists in Symbol Map
 bool symbolExists(std::string symbol);
 

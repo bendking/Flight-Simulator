@@ -9,7 +9,7 @@
 #include <pthread.h>
 
 extern std::vector<pthread_t*> threadsVector;
-extern bool shouldStopThreads;
+extern bool stopThreads;
 
 class ThreadsVector {
 

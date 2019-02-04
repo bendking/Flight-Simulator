@@ -9,12 +9,11 @@
 #include "../Interpreter/SymbolMap.h"
 
 class DefineVar: public Command {
-
+private:
     Expression *exp = nullptr;
     std::string address = "";
     std::string name = "";
     std::string var = "";
-
 public:
     // Constructors
     DefineVar(std::string _name, std::string _address);

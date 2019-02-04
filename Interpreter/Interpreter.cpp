@@ -22,13 +22,13 @@ Interpreter::Interpreter(std::string fileName) : Interpreter() {
 Interpreter::~Interpreter() {
 
     // Exit other threads
-    shouldStopThreads = true;
+    stopThreads = true;
 
-    char *b;
+    char* b;
 
     // Wait for them to complete
     for (auto th : threadsVector)
-        pthread_join(*th, (void**)&b);
+        pthread_join(*th, (void**)b);
 
     // Delete all threads
     for (auto th : threadsVector)

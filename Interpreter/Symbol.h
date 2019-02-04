@@ -22,6 +22,8 @@ public:
     explicit Symbol();
     explicit Symbol(double value);
     explicit Symbol(std::string address);
+    explicit Symbol(double value, std::string address);
+
 
     double getValue() const;
     void setValue(double value, bool notifyServer);

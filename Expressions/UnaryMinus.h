@@ -12,10 +12,8 @@ private:
     Expression *exp;
 public:
 
-    UnaryMinus(Expression *_exp);
-
+    explicit UnaryMinus(Expression *_exp);
     double calculate();
-
     ~UnaryMinus();
 
 };

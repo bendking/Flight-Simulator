@@ -5,7 +5,8 @@
 #include "ServerBuilder.h"
 
 
-void ServerBuilder::set_server(int port) {
+void ServerBuilder::set_server(int port)
+{
     if (!server_set) {
         server = new Server();
         server->bind_to(port);
@@ -13,14 +14,16 @@ void ServerBuilder::set_server(int port) {
     }
 }
 
-Server* ServerBuilder::get_server() {
+Server* ServerBuilder::get_server()
+{
     if (server_set) {
         return server;
     }
     throw "Server is not set";
 }
 
-void ServerBuilder::stop() {
+void ServerBuilder::stop()
+{
     if (server_set) {
         server->stop();
     }

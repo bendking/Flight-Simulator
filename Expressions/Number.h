@@ -12,9 +12,9 @@ class Number : public Expression {
 private:
     double num;
 public:
-    Number(double d);
-    Number(int i);
-    Number(std::string s);
+    explicit Number(double d);
+    explicit Number(int i);
+    explicit Number(std::string s);
     double calculate();
 };
 

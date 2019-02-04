@@ -7,7 +7,6 @@
 
 ServerRunner::ServerRunner(int port, int refresh_rate) {
     server = new Server(port);
-//    server->bind_to(port);
     this->port = port;
     this->refresh = refresh_rate;
     initializeValues();
@@ -30,7 +29,7 @@ void ServerRunner::run(int new_socket)
 
     // Set interval
     auto interval = std::chrono::nanoseconds(std::chrono::seconds(1)) / refresh;
-    while (!shouldStopThreads) {
+    while (!stopThreads) {
         // Get current time
         auto start = std::chrono::system_clock::now();
 
@@ -52,7 +51,7 @@ void ServerRunner::run(int new_socket)
         // Update values
         for (std::pair<std::string, Symbol*> symbol : symbolMap) {
             string path = symbol.second->getPath();
-            if (valueMap.count(path) > 0) {
+            if (valueMap.find(path) != valueMap.end()) {
                 symbol.second->setValue(valueMap[symbol.second->getPath()], false);
             }
         }

@@ -8,13 +8,16 @@ Symbol::Symbol() {
     // Empty symbol
 }
 
-Symbol::Symbol(double value) {
-    Symbol::value = value;
+Symbol::Symbol(double _value) {
+    value = _value;
 }
 
-Symbol::Symbol(std::string address) {
-    setPath(address);
+Symbol::Symbol(std::string _address) {
+    setPath(_address);
 }
+
+Symbol::Symbol(double _value, std::string _address): value(_value), path(_address) {}
+
 
 double Symbol::getValue() const {
     return value;

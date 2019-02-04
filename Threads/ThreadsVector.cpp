@@ -6,4 +6,4 @@
 
 
 std::vector<pthread_t*> threadsVector;
-bool shouldStopThreads = false;
+bool stopThreads = false;

@@ -12,7 +12,7 @@
 #include <sys/socket.h>	// socket
 #include <arpa/inet.h>	// inet_addr
 #include <netdb.h>	// hostent
-
+#include <unistd.h>
 
 
 class Server {

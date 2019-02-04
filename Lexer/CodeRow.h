@@ -24,7 +24,6 @@ public:
     int indexOf(std::string param) const;
 
     std::vector<std::string> getArgs();
-    std::vector<std::string> getArgsWithoutLast();
     void removeFirstElement();
     void removeLastElement();
     void removeFirstLetter();
