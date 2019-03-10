@@ -112,7 +112,7 @@ int CodeRow::indexOf(std::string param) const
 std::vector<std::string> CodeRow::getArgs() {
     return m_data;
 }
-
+/*
 std::vector<std::string> CodeRow::getArgsWithoutLast()
 {
     std::vector<std::string> returnVector = m_data;
@@ -120,7 +120,7 @@ std::vector<std::string> CodeRow::getArgsWithoutLast()
     return returnVector;
 
 }
-
+*/
 // Normalize the line format
 
 // TODO add spaces near < > == ||

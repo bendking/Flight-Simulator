@@ -30,7 +30,8 @@ bool Server::bind_to(int port)
 
     // Forcefully attaching socket to the port 8080
     int opt = 1;
-    if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
+    if (setsockopt(sock, SOL_SOCKET, SO_REUSEPORT, &opt, sizeof(opt)) ||
+        setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt))) {
         perror("setsockopt");
         return false;
     }
@@ -39,7 +40,7 @@ bool Server::bind_to(int port)
     server.sin_family = AF_INET;
     server.sin_port = htons(port);
 
-    if ((bind(sock, (struct sockaddr *)&server, sizeof(address))) < 0) {
+    if ((bind(sock, (struct sockaddr *)&server, sizeof(server))) < 0) {
         perror("Failed to bind server");
         return false;
     }
@@ -55,7 +56,7 @@ int Server::listen_to()
         return false;
     }
 
-    int addrlen = sizeof(address);
+    int addrlen = sizeof(server);
     int new_socket;
     // Attempt to accept new client                  HUGE BUG
     if ((new_socket = accept(sock, (struct sockaddr *)&server, (socklen_t*)&addrlen)) < 0) {
